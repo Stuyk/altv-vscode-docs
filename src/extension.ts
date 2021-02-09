@@ -30,15 +30,19 @@ const prefixCases: { [key: string]: Function } = {
     alt: (word: string) => `alt.${word}`,
     native: (word: string) => `native.${word}`,
     player: (word: string) => `player.${word}`,
+    Player: (word: string) => `Player.${word}`,
+    vehicle: (word: string) => `vehicle.${word}`,
+    Vehicle: (word: string) => `Vehicle.${word}`,
 };
 
-function getSwitchCaseRule(fullLineText: string, singleWord: string): string | boolean {
+function getSwitchCaseRule(fullLineText: string, singleWord: string, isClient: boolean = false): string | boolean {
     const keys = Object.keys(prefixCases);
+    singleWord = camelCaseIt(singleWord);
 
     for (let i = 0; i < keys.length; i++) {
         const newWord = prefixCases[keys[i]](singleWord);
         if (fullLineText.includes(newWord)) {
-            return `${keys[i]}/${singleWord}`;
+            return `${keys[i]}${!isClient ? '' : 'Client'}/${singleWord}`;
         }
     }
 
@@ -52,7 +56,16 @@ function registerHoverProvider(selector: vscode.DocumentSelector): vscode.Dispos
             const range = document.getWordRangeAtPosition(position);
             const word = document.getText(range);
 
-            const switchCaseRule = getSwitchCaseRule(fullLine.text, word);
+            let isClient = false;
+            for (let i = 0; i < 25; i++) {
+                const searchLine = document.lineAt(i);
+                if (searchLine.text.includes('alt-client') || searchLine.text.includes('natives')) {
+                    isClient = true;
+                    break;
+                }
+            }
+
+            const switchCaseRule = getSwitchCaseRule(fullLine.text, word, isClient);
             let fullPath = path.join(extensionPath as string, `./docs/${word}.md`);
 
             if (switchCaseRule) {
@@ -71,4 +84,8 @@ function registerHoverProvider(selector: vscode.DocumentSelector): vscode.Dispos
             return new vscode.Hover(new vscode.MarkdownString('').appendMarkdown(file.toString()));
         },
     });
+}
+
+function camelCaseIt(word: string) {
+    return word.charAt(0).toLowerCase() + word.slice(1);
 }

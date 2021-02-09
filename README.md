@@ -39,3 +39,17 @@ If you are running this from the cloned github repository.
     -   Run the extension in a new VS Code window
 
 You can also hit F5 in VSCode to debug the extension.
+
+## Changelog
+
+```
+1.0.2
+- Added Client / Server Check
+- Added Vehicle
+
+1.0.1
+- Added Basic Player Parameters
+
+1.0.0
+- Release Template
+```
