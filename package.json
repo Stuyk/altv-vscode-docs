@@ -2,7 +2,7 @@
     "name": "altv-vscode-docs",
     "displayName": "alt:V Docs",
     "description": "A documentation assistant for alt:V. Gives basic examples when hovering over text.",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "publisher": "stuyk",
     "repository": "https://github.com/stuyk/altv-vscode-docs",
     "engines": {

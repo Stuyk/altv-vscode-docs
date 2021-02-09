@@ -1,4 +1,5 @@
 Usually obtained from an event. This is a local or server-side player.
+By default the player needs to call `.spawn` and `.model` to move around in the world.
 
 **Example Usage**
 
