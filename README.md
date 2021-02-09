@@ -1,17 +1,20 @@
-# Splunkit
+# alt:V VSCode Docs
 
-A code formatter/beautify for .spl files - specifically around stats and rename commands. 
+A beautiful way to get information about coding for alt:V without stumbling around in the dark.
 
-For functionality similar to Splunk App 'Ctrl + \\' functionality the "Format SPL" Extension Command from VS Extension 'Splunk Search Autocompletion Tool' (by [arcsector](https://github.com/arcsector/vscode-splunk-search-linter)) works well and is auto-run by this extension.
+This will give you information about what you are typing by hovering over different elements in your code. However, it will not cover all elements. Just in most cases you can get general information while working with the alt:V API.
+
+## Installation
+
+Click the install button above. It's that easy.
 
 ## Usage
 
-```
-Ctrl + Shift + P
-> SPL Beautify
-```
+Simply hover over elements and it will tell you if it has information about it or not.
 
-## Installation / Testing
+![](https://thumbs.gfycat.com/EnviousSecondhandBullfrog-size_restricted.gif)
+
+## Using from Repository
 
 If you are running this from the cloned github repository.
 
