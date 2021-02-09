@@ -14,6 +14,20 @@ Simply hover over elements and it will tell you if it has information about it o
 
 ![](https://thumbs.gfycat.com/EnviousSecondhandBullfrog-size_restricted.gif)
 
+## Basic Contribution Guidelines
+
+-   Download the Repository
+-   Install Dependencies
+-   Start Writing `.md` files in the `docs` folder.
+
+Basically each folder is a prefix for some documentation.
+
+![](https://i.imgur.com/gokOSIN.png)
+
+Adding the documentation means it needs to be small. Very small.
+
+Try not to take up more than `10` lines if at all possible.
+
 ## Using from Repository
 
 If you are running this from the cloned github repository.
