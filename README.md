@@ -43,6 +43,9 @@ You can also hit F5 in VSCode to debug the extension.
 ## Changelog
 
 ```
+1.0.3
+- Added server alt definitions
+
 1.0.2
 - Added Client / Server Check
 - Added Vehicle
