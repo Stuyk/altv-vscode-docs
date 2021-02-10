@@ -1,7 +1,7 @@
 {
     "name": "altv-vscode-docs",
     "displayName": "alt:V IDE",
-    "description": "An Intellisense assistant for alt:V. Fixes common setup mistakes, hovering over functions gives examples, installs types, and much more...",
+    "description": "alt:V IDE. It is an Intellisense assistant for alt:V. Fixes common setup mistakes, hovering over functions gives examples, installs types, and much more...",
     "version": "1.0.5",
     "publisher": "stuyk",
     "repository": "https://github.com/stuyk/altv-vscode-docs",
