@@ -1,10 +1,8 @@
 # alt:V VSCode Docs
 
-A beautiful way to get information about coding for alt:V without stumbling around in the dark.
+A beautiful way to get information about coding for alt:V without stumbling around in the dark. This will give you information about what you are typing by hovering over different elements in your code. However, it will not cover all elements. Just in most cases you can get general information while working with the alt:V API.
 
-This will give you information about what you are typing by hovering over different elements in your code. However, it will not cover all elements.
-
-Just in most cases you can get general information while working with the alt:V API.
+[Made for Usage with altv.mp](https://altv.mp)
 
 ## Installation
 
