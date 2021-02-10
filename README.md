@@ -1,4 +1,4 @@
-# alt:V VSCode Docs
+# alt:V - VSCode IDE
 
 A beautiful way to get information about coding for alt:V without stumbling around in the dark. This will give you information about what you are typing by hovering over different elements in your code. However, it will not cover all elements. Just in most cases you can get general information while working with the alt:V API.
 
@@ -77,6 +77,9 @@ You can also hit F5 in VSCode to debug the extension.
 ## Changelog
 
 ```
+1.0.6
+- More Types!
+
 1.0.5
 - Must have 'altv-server' in workspace to start.
 
