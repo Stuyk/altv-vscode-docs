@@ -1,12 +1,13 @@
 import * as vscode from 'vscode';
-import * as fs from 'fs';
-import * as path from 'path';
+import { updateJavascriptFile } from './fileReferenceUpdater';
+import { verifyTypes } from './dependencyInstaller';
+import { registerHoverProvider } from './hoverProvider';
 
 const extensionName = `altv-vscode-helper`;
 let extensionPath: null | string = null;
 
 //Extension
-export function activate(context: vscode.ExtensionContext) {
+export async function activate(context: vscode.ExtensionContext) {
     let disposable;
 
     extensionPath = context.extensionPath;
@@ -16,76 +17,33 @@ export function activate(context: vscode.ExtensionContext) {
         return;
     }
 
-    disposable = registerHoverProvider({ language: 'typescript' });
-    context.subscriptions.push(disposable);
-
-    disposable = registerHoverProvider({ language: 'javascript' });
-    context.subscriptions.push(disposable);
-}
-
-// These are considered prefixes
-// They return the relative file path that applies to the prefix.
-// Example: alt.on, alt.emit, native.x
-const prefixCases: { [key: string]: Function } = {
-    alt: (word: string) => `alt.${word}`,
-    native: (word: string) => `native.${word}`,
-    player: (word: string) => `player.${word}`,
-    Player: (word: string) => `Player.${word}`,
-    vehicle: (word: string) => `vehicle.${word}`,
-    Vehicle: (word: string) => `Vehicle.${word}`,
-};
-
-function getSwitchCaseRule(fullLineText: string, singleWord: string, isClient: boolean = false): string | boolean {
-    const keys = Object.keys(prefixCases);
-    singleWord = camelCaseIt(singleWord);
-
-    for (let i = 0; i < keys.length; i++) {
-        const newWord = prefixCases[keys[i]](singleWord);
-        if (fullLineText.includes(newWord)) {
-            return `${keys[i]}${!isClient ? '' : 'Client'}/${singleWord}`;
-        }
+    const serverExists = await vscode.workspace.findFiles('altv-server.*');
+    if (serverExists.length <= 0) {
+        return;
     }
 
-    return false;
-}
+    const typesReady = await verifyTypes();
 
-function registerHoverProvider(selector: vscode.DocumentSelector): vscode.Disposable {
-    return vscode.languages.registerHoverProvider(selector, {
-        provideHover(document, position, token) {
-            const fullLine = document.lineAt(position.line);
-            const range = document.getWordRangeAtPosition(position);
-            const word = document.getText(range);
+    if (!typesReady) {
+        vscode.window.showErrorMessage(`alt:V Docs - Did not find type extensions. Please install them now.`);
+        return;
+    }
 
-            let isClient = false;
-            for (let i = 0; i < 25; i++) {
-                const searchLine = document.lineAt(i);
-                if (searchLine.text.includes('alt-client') || searchLine.text.includes('natives')) {
-                    isClient = true;
-                    break;
-                }
-            }
+    vscode.window.showInformationMessage(`alt:V Docs - Workspace Validated! Let's get coding!`);
 
-            const switchCaseRule = getSwitchCaseRule(fullLine.text, word, isClient);
-            let fullPath = path.join(extensionPath as string, `./docs/${word}.md`);
+    disposable = registerHoverProvider({ language: 'typescript' }, true);
+    context.subscriptions.push(disposable);
 
-            if (switchCaseRule) {
-                fullPath = path.join(extensionPath as string, `./docs/${switchCaseRule}.md`);
-            }
+    disposable = registerHoverProvider({ language: 'javascript' }, true);
+    context.subscriptions.push(disposable);
 
-            if (!fs.existsSync(fullPath)) {
-                return new vscode.Hover([`alt:V - No information for: ${word}`]);
-            }
-
-            const file = fs.readFileSync(fullPath);
-            if (!file) {
-                return new vscode.Hover([`alt:V - No information for: ${word}`]);
-            }
-
-            return new vscode.Hover(new vscode.MarkdownString('').appendMarkdown(file.toString()));
-        },
+    disposable = vscode.window.onDidChangeActiveTextEditor((e) => {
+        updateJavascriptFile(e?.document as vscode.TextDocument);
     });
+
+    context.subscriptions.push(disposable);
 }
 
-function camelCaseIt(word: string) {
-    return word.charAt(0).toLowerCase() + word.slice(1);
+export function getRootPath(): string | null {
+    return extensionPath;
 }
