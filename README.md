@@ -1,14 +1,48 @@
 # alt:V VSCode Docs
 
-A beautiful way to get information about coding for alt:V without stumbling around in the dark.
+A beautiful way to get information about coding for alt:V without stumbling around in the dark. This will give you information about what you are typing by hovering over different elements in your code. However, it will not cover all elements. Just in most cases you can get general information while working with the alt:V API.
 
-This will give you information about what you are typing by hovering over different elements in your code. However, it will not cover all elements. Just in most cases you can get general information while working with the alt:V API.
+[Made for Usage with altv.mp](https://altv.mp)
 
 ## Installation
 
 Click the install button above. It's that easy.
 
 ## Usage
+
+**Important**
+Open up a _workspace folder_ where `altv-server` is located.
+
+**!! WARNING !!**
+This will not work without `altv-server` present.
+
+## Features
+
+### Verifies the alt:V Workspace
+
+This will check if `altv-server` is present in your workspace directory.
+
+### Type Installer for alt:V Types
+
+Sets up your workspace to install missing dependencies needed for alt:V.
+
+**Requires** `package.json` to be present.
+
+![](https://i.imgur.com/UAuSR7O.png)
+
+### Auto Reference Builder for `.js` and `.mjs`
+
+Adds references to the tops of files if using `.js` or `.mjs`. Which automatically figures out if you're on client-side or server-side.
+
+![](https://i.imgur.com/30RaULb.png)
+
+### Adds "type": "module" to package.json
+
+Automatically fixes a module bug that users often overlook
+
+![](https://i.imgur.com/uwF7H9F.png)
+
+### Additional Type Information
 
 Simply hover over elements and it will tell you if it has information about it or not.
 
@@ -43,6 +77,19 @@ You can also hit F5 in VSCode to debug the extension.
 ## Changelog
 
 ```
+1.0.5
+- Must have 'altv-server' in workspace to start.
+
+1.0.4
+- Better Word Lookup Extension
+- Auto Install Missing Dependencies
+- Auto Check if `altv-server` workspace
+- Auto Install References for .js / .mjs
+- Organized Folders
+
+1.0.3
+- Added server alt definitions
+
 1.0.2
 - Added Client / Server Check
 - Added Vehicle

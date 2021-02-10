@@ -1,8 +1,8 @@
 {
     "name": "altv-vscode-docs",
-    "displayName": "alt:V Docs",
-    "description": "A documentation assistant for alt:V. Gives basic examples when hovering over text.",
-    "version": "1.0.2",
+    "displayName": "alt:V IDE",
+    "description": "alt:V IDE. It is an Intellisense assistant for alt:V. Fixes common setup mistakes, hovering over functions gives examples, installs types, and much more...",
+    "version": "1.0.5",
     "publisher": "stuyk",
     "repository": "https://github.com/stuyk/altv-vscode-docs",
     "engines": {
@@ -20,8 +20,7 @@
         "theme": "dark"
     },
     "activationEvents": [
-        "onLanguage:javascript",
-        "onLanguage:typescript"
+        "workspaceContains:altv-server.*"
     ],
     "main": "./out/extension.js",
     "scripts": {
