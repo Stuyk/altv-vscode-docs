@@ -77,6 +77,9 @@ You can also hit F5 in VSCode to debug the extension.
 ## Changelog
 
 ```
+1.0.7
+- Fix Types for Smaller Files
+
 1.0.6
 - More Types!
 

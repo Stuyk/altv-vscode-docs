@@ -40,8 +40,14 @@ export function registerHoverProvider(
             const range = document.getWordRangeAtPosition(position);
             const word = document.getText(range);
 
+            let maxLineCheck = 25;
+
+            if (document.lineCount < maxLineCheck) {
+                maxLineCheck = document.lineCount;
+            }
+
             let isClient = false;
-            for (let i = 0; i < 25; i++) {
+            for (let i = 0; i < maxLineCheck; i++) {
                 const searchLine = document.lineAt(i);
                 if (searchLine.text.includes('alt-client') || searchLine.text.includes('natives')) {
                     isClient = true;
