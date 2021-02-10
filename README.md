@@ -10,8 +10,13 @@ Just in most cases you can get general information while working with the alt:V 
 
 Click the install button above. It's that easy.
 
+## Usage
+
 **Important**
 Open up a _workspace folder_ where `altv-server` is located.
+
+**!! WARNING !!**
+This will not work without `altv-server` present.
 
 ## Features
 
@@ -74,6 +79,9 @@ You can also hit F5 in VSCode to debug the extension.
 ## Changelog
 
 ```
+1.0.5
+- Must have 'altv-server' in workspace to start.
+
 1.0.4
 - Better Word Lookup Extension
 - Auto Install Missing Dependencies
