@@ -45,9 +45,19 @@ export class DocumentationSearch {
         console.log(`alt:V IDE - Found: ${documentationFiles.length} files for documentation.`);
     }
 
-    static showDocumentation(filePath: string) {
+    static showDocumentation(filePath: string, isHover: boolean = false) {
         const uri = vscode.Uri.file(filePath);
-        vscode.commands.executeCommand('markdown.showPreviewToSide', uri, vscode.ViewColumn.Active);
+
+        if (!isHover) {
+            vscode.commands.executeCommand('markdown.showPreviewToSide', uri, vscode.ViewColumn.Active);
+            return;
+        }
+
+        vscode.commands.executeCommand(
+            'markdown.showPreviewToSide',
+            uri,
+            vscode.ViewColumn.Beside | vscode.ViewColumn.Active | vscode.ViewColumn.Two
+        );
     }
 
     static showQuickPick() {

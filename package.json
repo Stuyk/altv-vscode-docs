@@ -47,5 +47,13 @@
     "dependencies": {
         "glob": "^7.1.6",
         "gray-matter": "^4.0.2"
+    },
+    "contributes": {
+        "commands": [
+            {
+                "command": "altv-docs",
+                "title": "alt:V Documentation"
+            }
+        ]
     }
 }

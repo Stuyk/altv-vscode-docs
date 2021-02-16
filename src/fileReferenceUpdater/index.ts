@@ -15,7 +15,6 @@ export async function updateJavascriptFile(document: vscode.TextDocument) {
     }
 
     if (!document.fileName.includes('.js') && !document.fileName.includes('.mjs')) {
-        console.log(`alt:V Debug - Not a JavaScript file.`);
         return;
     }
 

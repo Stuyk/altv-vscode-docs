@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 import { updateJavascriptFile } from './fileReferenceUpdater';
 import { verifyTypes } from './dependencyInstaller';
-import { registerHoverProvider } from './hoverProvider';
+import { getHoverFilePath, registerHoverProvider } from './hoverProvider';
 import { DocumentationSearch } from './docsSearch';
 
 let extensionPath: null | string = null;
@@ -30,7 +30,7 @@ export async function activate(context: vscode.ExtensionContext) {
     }
 
     // Status Bar Doc Command
-    disposable = vscode.commands.registerCommand('alt:V-Docs', () => {
+    disposable = vscode.commands.registerCommand('altv-docs', () => {
         new DocumentationSearch(context.extensionUri.fsPath);
         DocumentationSearch.showQuickPick();
     });
@@ -38,7 +38,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
     // Create Status Bar Text
     disposable = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 0);
-    disposable.command = 'alt:V-Docs';
+    disposable.command = 'altv-docs';
     disposable.text = 'Open alt:V Docs';
     disposable.show();
     context.subscriptions.push(disposable);
@@ -48,6 +48,23 @@ export async function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(disposable);
 
     disposable = registerHoverProvider({ language: 'javascript' }, true);
+    context.subscriptions.push(disposable);
+
+    // Used to trigger certain actions when opening from a file.
+    disposable = vscode.workspace.onDidOpenTextDocument((e) => {
+        // Triggered when a file is opened from hover view.
+        if (e?.fileName.includes('altvFileOpener')) {
+            vscode.commands.executeCommand(`workbench.action.closeActiveEditor`).then((res) => {
+                const filePath = getHoverFilePath();
+                if (filePath === '') {
+                    return;
+                }
+
+                vscode.commands.executeCommand('markdown.showPreviewToSide', vscode.Uri.file(filePath));
+            });
+            return;
+        }
+    });
     context.subscriptions.push(disposable);
 
     // Text Editor Handler
