@@ -112,12 +112,15 @@ You can also hit F5 in VSCode to debug the extension.
 # Changelog
 
 ```
-1.2.0
+1.1.1
 - Remove Hover Markdown
 - Documentation is now accessible through open 'x' document on hover.
 - Added 'local' replacement for player.
 - Local now shows documentation for client-side player.
 - Updated README to be more feature complete.
+- Added Server Events
+- Added New Concepts
+- Added Tables
 
 1.1.0
 - Add Front Matter to .md Files
