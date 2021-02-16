@@ -3,6 +3,8 @@ import { updateJavascriptFile } from './fileReferenceUpdater';
 import { verifyTypes } from './dependencyInstaller';
 import { getHoverFilePath, registerHoverProvider } from './hoverProvider';
 import { DocumentationSearch } from './docsSearch';
+import { existsSync, writeFileSync } from 'fs';
+import * as path from 'path';
 
 let extensionPath: null | string = null;
 
@@ -17,6 +19,18 @@ export async function activate(context: vscode.ExtensionContext) {
         return;
     }
 
+    if (!existsSync(path.join(extensionPath, './.firstLoad'))) {
+        writeFileSync(path.join(extensionPath, './.firstLoad'), 'Thanks for trying alt:V IDE!');
+        DocumentationSearch.showGettingStarted();
+    }
+
+    // Status Bar Docs Command
+    disposable = vscode.commands.registerCommand('altv-docs', () => {
+        new DocumentationSearch(context.extensionUri.fsPath);
+        DocumentationSearch.showQuickPick();
+    });
+    context.subscriptions.push(disposable);
+
     const serverExists = await vscode.workspace.findFiles('altv-server.*');
     if (serverExists.length <= 0) {
         return;
@@ -26,15 +40,9 @@ export async function activate(context: vscode.ExtensionContext) {
 
     if (!typesReady) {
         vscode.window.showErrorMessage(`alt:V Docs - Close package.json and re-open VSCode in this folder.`);
+        DocumentationSearch.showGettingStarted();
         return;
     }
-
-    // Status Bar Doc Command
-    disposable = vscode.commands.registerCommand('altv-docs', () => {
-        new DocumentationSearch(context.extensionUri.fsPath);
-        DocumentationSearch.showQuickPick();
-    });
-    context.subscriptions.push(disposable);
 
     // Create Status Bar Text
     disposable = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 0);

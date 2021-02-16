@@ -3,6 +3,7 @@ import * as path from 'path';
 import * as glob from 'glob';
 import * as fs from 'fs';
 import * as gm from 'gray-matter';
+import { getRootPath } from '../extension';
 
 let documentationFiles: Array<{ fileName: string; filePath: string; description: string }> = [];
 
@@ -58,6 +59,11 @@ export class DocumentationSearch {
             uri,
             vscode.ViewColumn.Beside | vscode.ViewColumn.Active | vscode.ViewColumn.Two
         );
+    }
+
+    static showGettingStarted() {
+        const uri = vscode.Uri.file(path.join(getRootPath() as string, '/docs/articles/getting-started.md'));
+        vscode.commands.executeCommand('markdown.showPreviewToSide', uri, vscode.ViewColumn.Active);
     }
 
     static showQuickPick() {

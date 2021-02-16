@@ -112,6 +112,11 @@ You can also hit F5 in VSCode to debug the extension.
 # Changelog
 
 ```
+1.1.2
+- Added First Time Loading Page
+- Added Getting Started Guide
+- Added new tables
+
 1.1.1
 - Remove Hover Markdown
 - Documentation is now accessible through open 'x' document on hover.
