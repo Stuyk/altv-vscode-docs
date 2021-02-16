@@ -83,6 +83,12 @@ You can also hit F5 in VSCode to debug the extension.
 ## Changelog
 
 ```
+1.1.0
+- Add Front Matter to .md Files
+- Add Better Title / Prefix Handling for Files
+- Format All .md Files
+- Thanks Alexa/Zack!
+
 1.0.9
 - Better Search Box for Documentation Browsing
 - Better Markdown Preview for Documentation Browsing

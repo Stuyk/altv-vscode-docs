@@ -1,3 +1,11 @@
+---
+title: 'player.dimension'
+description: "Change or get the player's dimension."
+prefix: '[Server]'
+---
+
+# player.dimension
+
 Change or get the player's dimension.
 Negative dimensions see positive dimensions. However, positive dimensions do not see negative dimensions.
 

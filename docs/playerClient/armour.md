@@ -1,3 +1,11 @@
+---
+title: 'player.armour'
+description: 'Get player armour.'
+prefix: '[Client]'
+---
+
+# alt.Player.local.armour
+
 Used to obtain a player's armour.
 
 **Example Usage**

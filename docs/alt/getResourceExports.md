@@ -1,4 +1,10 @@
-Gets the exports of the specified resource.
+---
+title: 'alt.getResourceExports'
+description: 'Gets the exports of the specified resource.'
+prefix: '[Server]'
+---
+
+# alt.getResourceExports
 
 **Example Usage**
 

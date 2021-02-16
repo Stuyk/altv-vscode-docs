@@ -1,4 +1,10 @@
-Logs the specified arguments as an error to the console.
+---
+title: 'alt.logError'
+description: 'Logs the specified arguments as an error to the console.'
+prefix: '[Client]'
+---
+
+# alt.logError
 
 **Example Usage**
 

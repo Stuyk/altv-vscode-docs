@@ -1,4 +1,10 @@
-Logs the specified arguments as an error to the console.
+---
+title: 'alt.log'
+description: 'Logs the specified arguments as an error to the console.'
+prefix: '[Server]'
+---
+
+# alt.log
 
 **Example Usage**
 

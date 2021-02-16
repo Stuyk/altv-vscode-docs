@@ -1,3 +1,11 @@
+---
+title: 'player.ping'
+description: 'Get a players current ping.'
+prefix: '[Server]'
+---
+
+# player.ping
+
 Get the player's current ping.
 
 **Example Usage**

@@ -1,4 +1,10 @@
-Used to listen to events when a player joins, leaves, dies, etc.
+---
+title: 'alt.on'
+description: 'Used to listen to events when a player joins, leaves, dies, etc.'
+prefix: '[Server]'
+---
+
+# alt.on
 
 **Example Usage**
 

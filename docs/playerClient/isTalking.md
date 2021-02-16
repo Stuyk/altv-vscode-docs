@@ -1,3 +1,11 @@
+---
+title: 'player.isTalking'
+description: 'Check if the player is currently talking.'
+prefix: '[Client]'
+---
+
+# alt.Player.local.isTalking
+
 Get if the player is currently using their voice.
 
 **Example Usage**

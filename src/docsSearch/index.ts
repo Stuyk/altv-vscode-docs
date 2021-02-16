@@ -1,11 +1,20 @@
 import * as vscode from 'vscode';
 import * as path from 'path';
 import * as glob from 'glob';
+import * as fs from 'fs';
+import * as gm from 'gray-matter';
 
-let documentationFiles: Array<{ fileName: string; filePath: string }> = [];
+let documentationFiles: Array<{ fileName: string; filePath: string; description: string }> = [];
 
 interface altPickItem extends vscode.QuickPickItem {
     filePath: string;
+    description: string;
+}
+
+interface altMatter {
+    title?: string;
+    description?: string;
+    prefix?: string;
 }
 
 export class DocumentationSearch {
@@ -17,26 +26,20 @@ export class DocumentationSearch {
         const currentFiles = glob.sync(path.join(contextUri, '/docs/**/*.md'));
         for (let i = 0; i < currentFiles.length; i++) {
             let filePath = currentFiles[i];
-            let fileName = currentFiles[i].substr(contextUri.length + 1);
+            let fileData = fs.readFileSync(filePath, 'utf8');
 
-            fileName = fileName.replace('docs/', '');
+            try {
+                const grayMatter = gm(fileData);
+                const data = grayMatter.data as altMatter;
 
-            if (fileName.includes('Client/')) {
-                fileName = fileName.replace('Client', '');
-                fileName = `[Client] ${fileName}`;
-            } else if (fileName.includes('articles')) {
-                fileName = `[Article] ${fileName}`;
-            } else if (fileName.includes('tables')) {
-                fileName = `[Tables] ${fileName}`;
-            } else {
-                fileName = `[Server] ${fileName}`;
+                documentationFiles.push({
+                    fileName: `${data.prefix} ${data.title}`,
+                    filePath,
+                    description: data.description ? data.description : '',
+                });
+            } catch (err) {
+                console.log(err);
             }
-
-            fileName = fileName.replace('.md', '');
-            fileName = fileName.replace(/\//g, '.');
-            fileName = fileName.replace('articles.', '');
-            fileName = fileName.replace('tables.', '');
-            documentationFiles.push({ fileName, filePath });
         }
 
         console.log(`alt:V IDE - Found: ${documentationFiles.length} files for documentation.`);
@@ -50,7 +53,11 @@ export class DocumentationSearch {
     static showQuickPick() {
         const quickPick = vscode.window.createQuickPick();
         quickPick.items = documentationFiles.map((fileData) => {
-            return { label: fileData.fileName, filePath: fileData.filePath } as altPickItem;
+            return {
+                label: fileData.fileName,
+                filePath: fileData.filePath,
+                description: fileData.description,
+            } as altPickItem;
         });
 
         quickPick.onDidChangeSelection((selectedItems) => {

@@ -1,3 +1,11 @@
+---
+title: 'player.kick'
+description: 'Kick a player with a reason.'
+prefix: '[Server]'
+---
+
+# player.kick
+
 Kick a player with a reason.
 
 **Example Usage**

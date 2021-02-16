@@ -1,3 +1,11 @@
+---
+title: 'player.health'
+description: "Used to obtain or change a player's health."
+prefix: '[Server]'
+---
+
+# player.health
+
 Used to obtain or change a player's health.
 
 **Example Usage**

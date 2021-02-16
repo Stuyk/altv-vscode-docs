@@ -1,3 +1,11 @@
+---
+title: 'player.spawn'
+description: 'Used to spawn the player into the world.'
+prefix: '[Server]'
+---
+
+# player.spawn
+
 Used to spawn the player into the world.
 
 _Best paired with `player.model` when spawning players._

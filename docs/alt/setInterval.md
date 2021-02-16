@@ -1,4 +1,10 @@
-Schedules execution of handler in specified intervals.
+---
+title: 'alt.setInterval'
+description: 'Schedules execution of handler in specified intervals.'
+prefix: '[Server]'
+---
+
+# alt.setInterval
 
 **Example Usage**
 

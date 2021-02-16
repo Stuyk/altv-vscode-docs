@@ -1,4 +1,10 @@
-Sets the current weather cycle.
+---
+title: 'alt.setWeatherCycle'
+description: 'Sets the current weather cycle.'
+prefix: '[Client]'
+---
+
+# alt.setWeatherCycle
 
 **Example Usage**
 

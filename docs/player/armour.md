@@ -1,3 +1,9 @@
+---
+title: 'player.armour'
+description: "Used to get or set a player's armour."
+prefix: '[Server]'
+---
+
 # player.armour
 
 **Description**

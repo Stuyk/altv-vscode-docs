@@ -1,4 +1,10 @@
-Clears a timer set with the everyTick function.
+---
+title: 'alt.clearEveryTick'
+description: 'Clears a timer set with the everyTick function.'
+prefix: '[Client]'
+---
+
+# alt.clearEveryTick
 
 **Example Usage**
 

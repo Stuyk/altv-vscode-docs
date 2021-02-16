@@ -1,3 +1,11 @@
+---
+title: 'player.rot'
+description: "Used to set or get the player's rotation"
+prefix: '[Server]'
+---
+
+# player.rot
+
 Set or get the player's rotation.
 
 **Example Usage**

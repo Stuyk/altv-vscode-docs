@@ -1,4 +1,10 @@
-Restarts the specified resource.
+---
+title: 'alt.restartResource'
+description: 'Restarts the specified resource.'
+prefix: '[Server]'
+---
+
+# alt.restartResource
 
 **Example Usage**
 

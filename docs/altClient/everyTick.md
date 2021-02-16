@@ -1,4 +1,10 @@
-Schedules execution of handler on every frame.
+---
+title: 'alt.everyTick'
+description: 'Schedules execution of handler on every frame.'
+prefix: '[Client]'
+---
+
+# alt.everyTick
 
 **Example Usage**
 

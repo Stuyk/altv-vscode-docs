@@ -1,4 +1,10 @@
-Takes a screenshot of the raw GTA:V window, excludes webviews.
+---
+title: 'alt.takeScreenshotGameOnly'
+description: 'Takes a screenshot of the raw GTA:V window, excludes webviews.'
+prefix: '[Client]'
+---
+
+# alt.takeScreenshotGameOnly
 
 **Example Usage**
 

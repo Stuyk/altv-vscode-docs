@@ -1,3 +1,11 @@
+---
+title: 'player.maxArmour'
+description: 'Get player maximum armour.'
+prefix: '[Client]'
+---
+
+# alt.Player.local.maxArmour
+
 Used to get the player's Maximum Armour.
 
 **Example Usage**

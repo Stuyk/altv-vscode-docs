@@ -1,3 +1,11 @@
+---
+title: 'player.setDateTime'
+description: 'Used to set the world time for a player.'
+prefix: '[Server]'
+---
+
+# player.setDateTime
+
 Used to set a player's date and time.
 
 Highly recommended to disable player clock on client-side while using this.

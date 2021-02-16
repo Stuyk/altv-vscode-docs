@@ -1,4 +1,10 @@
-Clears a timer set with the setTimeout function.
+---
+title: 'alt.setTimeout'
+description: 'Clears a timer set with the setTimeout function.'
+prefix: '[Client]'
+---
+
+# alt.setTimeout
 
 **Example Usage**
 

@@ -1,4 +1,10 @@
-Emits specified event to specific client.
+---
+title: 'alt.emitClient'
+description: 'Emits specified event to specific client.'
+prefix: '[Server]'
+---
+
+# allt.emitClient
 
 **Example Usage**
 

@@ -1,3 +1,11 @@
+---
+title: 'player.pos'
+description: "Set or get the player's position."
+prefix: '[Server]'
+---
+
+# player.pos
+
 Set or get the player's position.
 
 **Example Usage**

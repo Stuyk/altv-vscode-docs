@@ -1,4 +1,10 @@
-Schedules execution of handler once after the expiration of interval.
+---
+title: 'alt.setTimeout'
+description: 'Schedules execution of handler once after the expiration of interval.'
+prefix: '[Server]'
+---
+
+# alt.setTimeout
 
 **Example Usage**
 

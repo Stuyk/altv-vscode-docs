@@ -1,3 +1,11 @@
+---
+title: 'player.pos'
+description: 'Get the position of a player.'
+prefix: '[Client]'
+---
+
+# alt.Player.local.pos
+
 Get the player's position.
 
 **Example Usage**

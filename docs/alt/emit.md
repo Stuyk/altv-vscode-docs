@@ -1,4 +1,10 @@
-Used to emit from one resource to another or the same resource.
+---
+title: 'alt.emit'
+description: 'Used to emit from one resource to another or the same resource.'
+prefix: '[Server]'
+---
+
+# alt.emit
 
 **Example Usage**
 

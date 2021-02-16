@@ -1,3 +1,11 @@
+---
+title: 'player.id'
+description: "Get the player's identification number for server or client-side."
+prefix: '[Client]'
+---
+
+# alt.Player.local.id
+
 Get the player's identification number for server or client-side.
 
 **Example Usage**

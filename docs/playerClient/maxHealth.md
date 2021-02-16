@@ -1,3 +1,11 @@
+---
+title: 'player.maxHealth'
+description: 'Get player maximum health.'
+prefix: '[Client]'
+---
+
+# alt.Player.local.maxHealth
+
 Used to get the player's Maximum Health.
 
 **Example Usage**

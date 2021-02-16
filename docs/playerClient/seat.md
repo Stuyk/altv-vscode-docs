@@ -1,3 +1,11 @@
+---
+title: 'player.seat'
+description: 'Get the seat of a player if they are in a vehicle.'
+prefix: '[Client]'
+---
+
+# alt.Player.local.seat
+
 Get the player's seat if they are in a vehicle.
 
 _Note: Driver seat starts at -1 for natives._

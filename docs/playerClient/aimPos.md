@@ -1,4 +1,12 @@
-Get what the player is currently aiming at.
+---
+title: 'player.aimPos'
+description: 'Get the position of where a player is aiming.'
+prefix: '[Client]'
+---
+
+# alt.Player.local.aimPos
+
+Get the position of where a player is aiming.
 
 **Example Usage**
 

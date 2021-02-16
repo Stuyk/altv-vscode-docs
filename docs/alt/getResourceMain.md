@@ -1,4 +1,10 @@
-Gets the path to the specified resource.
+---
+title: 'alt.getResourceMain'
+description: 'Gets the main file of the specified resource.'
+prefix: '[Server]'
+---
+
+# alt.getResourceMain
 
 **Example Usage**
 

@@ -1,3 +1,11 @@
+---
+title: 'player.visible'
+description: 'Get player visibility based on server setter.'
+prefix: '[Client]'
+---
+
+# alt.Player.local.visible
+
 Get the player's visbility.
 
 **Example Usage**

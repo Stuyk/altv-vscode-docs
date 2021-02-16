@@ -1,3 +1,11 @@
+---
+title: 'player.headRot'
+description: 'Get the current rotation of a player head.'
+prefix: '[Client]'
+---
+
+# alt.Player.local.headRot
+
 Get the player's head rotation.
 
 **Example Usage**

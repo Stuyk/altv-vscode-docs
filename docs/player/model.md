@@ -1,3 +1,11 @@
+---
+title: 'player.model'
+description: "Set or get the player's model based on string or number."
+prefix: '[Server]'
+---
+
+# player.model
+
 Set or get the player's model based on string or number.
 
 **Example Usage**

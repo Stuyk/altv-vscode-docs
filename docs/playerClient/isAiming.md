@@ -1,3 +1,11 @@
+---
+title: 'player.isAiming'
+description: 'Check if the player is currently aiming.'
+prefix: '[Client]'
+---
+
+# alt.Player.local.isAiming
+
 Get if the player is currently aiming.
 
 **Example Usage**

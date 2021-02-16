@@ -1,4 +1,10 @@
-Used to emit from one resource to another or the same resource.
+---
+title: 'alt.on'
+description: 'Used to emit from one resource to another or the same resource.'
+prefix: '[Client]'
+---
+
+# alt.on
 
 **Example Usage**
 

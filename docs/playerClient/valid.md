@@ -1,3 +1,11 @@
+---
+title: 'player.valid'
+description: 'Get the validity of the player entity. Checks if they are still a valid entity.'
+prefix: '[Client]'
+---
+
+# alt.Player.local.valid
+
 Get the validity of the player entity. Checks if they are still a valid entity.
 Useful when you use timeouts and then the player logs out.
 

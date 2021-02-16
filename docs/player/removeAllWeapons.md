@@ -1,3 +1,11 @@
+---
+title: 'player.removeAllWeapons'
+description: 'Used to remove all weapons from a player.'
+prefix: '[Server]'
+---
+
+# player.removeAllWeapons
+
 Remove all weapons from a player.
 
 **Example Usage**
@@ -5,5 +13,3 @@ Remove all weapons from a player.
 ```js
 player.removeAllWeapons();
 ```
-
-_Server-Side Only_

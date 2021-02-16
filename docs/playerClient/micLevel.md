@@ -1,3 +1,11 @@
+---
+title: 'player.micLevel'
+description: 'Get the microphone level of a player.'
+prefix: '[Client]'
+---
+
+# alt.Player.local.micLevel
+
 Get the current micLevel of a player.
 
 **Example Usage**

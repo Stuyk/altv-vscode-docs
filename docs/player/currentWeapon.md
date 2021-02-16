@@ -1,3 +1,11 @@
+---
+title: 'player.currentWeapon'
+description: "Get the current weapon in the player's hand as a hash."
+prefix: '[Server]'
+---
+
+# player.currentWeapon
+
 Get the current weapon in the player's hand as a hash.
 
 **Example Usage**

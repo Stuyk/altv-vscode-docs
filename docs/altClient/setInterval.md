@@ -1,4 +1,10 @@
-Clears a timer set with the setInterval function.
+---
+title: 'alt.setInterval'
+description: 'Clears a timer set with the setInterval function.'
+prefix: '[Client]'
+---
+
+# alt.setInterval
 
 **Example Usage**
 

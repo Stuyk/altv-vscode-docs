@@ -1,4 +1,12 @@
-Used to import native or game function calls on client-side.
+---
+title: 'native'
+description: 'Basic import to apply natives to a client.'
+prefix: '[Native]'
+---
+
+# native
+
+Used to import native or game function calls on **client-side**.
 
 **Example Usage**
 

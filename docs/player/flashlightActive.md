@@ -1,3 +1,11 @@
+---
+title: 'player.flashlightActive'
+description: 'Check if flashlight is active for this player.'
+prefix: '[Server]'
+---
+
+# player.flashlightActive
+
 Check if flashlight is active for this player.
 
 **Example Usage**

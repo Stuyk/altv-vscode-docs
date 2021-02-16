@@ -1,3 +1,11 @@
+---
+title: 'player.entityAimingAt'
+description: 'Get the vehicle, player, etc. that the player is aiming at.'
+prefix: '[Client]'
+---
+
+# alt.Player.local.entityAimingAt
+
 Get the vehicle, player, etc. that the player is aiming at.
 
 **Example Usage**

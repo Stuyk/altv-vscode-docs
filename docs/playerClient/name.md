@@ -1,3 +1,11 @@
+---
+title: 'player.name'
+description: 'Get the name of a player.'
+prefix: '[Client]'
+---
+
+# alt.Player.local.name
+
 Get the player's current name. It cannot be changed.
 This is the name that the player defines.
 

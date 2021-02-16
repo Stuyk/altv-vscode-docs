@@ -1,3 +1,11 @@
+---
+title: 'player.maxArmour'
+description: "Used to get or set the player's Maximum Armour."
+prefix: '[Server]'
+---
+
+# player.maxArmour
+
 Used to get or set the player's Maximum Armour.
 Makes it larger than 100.
 

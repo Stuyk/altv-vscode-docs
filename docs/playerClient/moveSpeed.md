@@ -1,3 +1,11 @@
+---
+title: 'player.moveSpeed'
+description: 'Get the current movement speed of a player.'
+prefix: '[Client]'
+---
+
+# alt.Player.local.moveSpeed
+
 Get the current movement speed of a player.
 
 **Example Usage**

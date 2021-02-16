@@ -1,6 +1,10 @@
-Returns whether the game controls are currently enabled.
+---
+title: 'alt.gameControlsEnabled'
+description: 'Returns whether the game controls are currently enabled.'
+prefix: '[Client]'
+---
 
-of handler on every frame.
+# alt.gameControlsEnabled
 
 **Example Usage**
 

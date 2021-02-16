@@ -1,3 +1,9 @@
+---
+title: 'native.removeIpl'
+description: "Used to remove an IPL from the player's game."
+prefix: '[Native]'
+---
+
 # native.removeIpl
 
 **Description**

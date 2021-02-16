@@ -1,4 +1,10 @@
-Clears a timer set with the setInterval function.
+---
+title: 'alt.ClearTimeout'
+description: 'Clears a timer set with the setTimeout function.'
+prefix: '[Server]'
+---
+
+# alt.clearTimeout
 
 **Example Usage**
 

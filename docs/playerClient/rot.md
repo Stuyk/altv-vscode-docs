@@ -1,3 +1,11 @@
+---
+title: 'player.rot'
+description: 'Get the rotation of a player.'
+prefix: '[Client]'
+---
+
+# alt.Player.local.rot
+
 Get the player's rotation.
 
 **Example Usage**

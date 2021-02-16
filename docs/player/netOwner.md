@@ -1,3 +1,11 @@
+---
+title: 'player.netOwner'
+description: 'Get a players network owner.'
+prefix: '[Server]'
+---
+
+# player.netOwner
+
 Network owner is responsible for syncing entity with the server. It changes when actual network owner passes the migration range, then the new one is determined based on distance from the entity (if entity is a vehicle, then the driver will take priority for becoming network owner). Disabling migration range will stop this process from happening until turned on again.
 
 **Example Usage**

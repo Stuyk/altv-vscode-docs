@@ -1,4 +1,10 @@
-Clears a timer set with the nextTick function.
+---
+title: 'alt.clearNextTick'
+description: 'Clears a timer set with the nextTick function.'
+prefix: '[Client]'
+---
+
+# alt.clearNextTick
 
 **Example Usage**
 

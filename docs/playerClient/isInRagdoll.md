@@ -1,3 +1,11 @@
+---
+title: 'player.isInRagdoll'
+description: 'Check if the player is currently in ragdoll mode.'
+prefix: '[Client]'
+---
+
+# alt.Player.local.isInRagdoll
+
 Get if the player is currently in Ragdoll Mode.
 
 **Example Usage**

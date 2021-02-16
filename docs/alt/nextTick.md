@@ -1,4 +1,10 @@
-Schedules execution of handler on next tick.
+---
+title: 'alt.nextTick'
+description: 'Schedules execution of handler on next tick.'
+prefix: '[Server]'
+---
+
+# alt.nextTick
 
 **Example Usage**
 

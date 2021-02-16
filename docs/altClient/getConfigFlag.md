@@ -1,4 +1,10 @@
-Schedules execution of handler on every frame.
+---
+title: 'alt.getConfigFlag'
+description: 'Schedules execution of handler on every frame.'
+prefix: '[Client]'
+---
+
+# alt.getConfigFlag
 
 **Example Usage**
 

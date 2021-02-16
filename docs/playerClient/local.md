@@ -1,3 +1,11 @@
+---
+title: 'alt.Player.local'
+description: 'Get the local player.'
+prefix: '[Client]'
+---
+
+# alt.Player.local
+
 This is your local player instance. You must use **scriptID** with a native for it to function when it asks for a `ped` or `entity`.
 
 **Example Usage**

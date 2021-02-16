@@ -1,3 +1,11 @@
+---
+title: 'player'
+description: 'Usually obtained from an event. This is a local or server-side player.'
+prefix: '[Server/Client]'
+---
+
+# player
+
 Usually obtained from an event. This is a local or server-side player.
 By default the player needs to call `.spawn` and `.model` to move around in the world.
 

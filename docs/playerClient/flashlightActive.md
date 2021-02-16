@@ -1,3 +1,11 @@
+---
+title: 'player.flashlightActive'
+description: 'Check if flashlight is active for this player.'
+prefix: '[Client]'
+---
+
+# alt.Player.local.flashlightActive
+
 Check if flashlight is active for this player.
 
 **Example Usage**

@@ -1,4 +1,10 @@
-Logs the specified arguments as a warning to the console.
+---
+title: 'alt.logWarning'
+description: 'Logs the specified arguments as a warning to the console.'
+prefix: '[Client]'
+---
+
+# alt.logWarning
 
 **Example Usage**
 

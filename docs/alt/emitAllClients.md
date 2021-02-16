@@ -1,4 +1,10 @@
-Emits specified event to all clients.
+---
+title: 'alt.emitAllClients'
+description: 'Emits specified event to all clients.'
+prefix: '[Server]'
+---
+
+# alt.emitAllClients
 
 **Example Usage**
 

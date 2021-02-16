@@ -1,4 +1,10 @@
-Gets the current position of the cursor.
+---
+title: 'alt.getCursorPos'
+description: 'Gets the current position of the cursor.'
+prefix: '[Client]'
+---
+
+# alt.getCursorPos
 
 **Example Usage**
 
