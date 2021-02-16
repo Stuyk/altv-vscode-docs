@@ -1,4 +1,14 @@
-Used to obtain or change a player's armour.
+# player.armour
+
+**Description**
+
+Used to get or set a player's armour.
+
+**Definition**
+
+```ts
+player.armour: number;
+```
 
 **Example Usage**
 

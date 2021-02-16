@@ -2,7 +2,7 @@ import * as vscode from 'vscode';
 import { updateJavascriptFile } from './fileReferenceUpdater';
 import { verifyTypes } from './dependencyInstaller';
 import { registerHoverProvider } from './hoverProvider';
-import { DocsViewPanel } from './webview';
+import { DocumentationSearch } from './docsSearch';
 
 let extensionPath: null | string = null;
 
@@ -29,12 +29,17 @@ export async function activate(context: vscode.ExtensionContext) {
         return;
     }
 
-    disposable = vscode.commands.registerCommand('alt:V-Test', () => new DocsViewPanel());
+    // Status Bar Doc Command
+    disposable = vscode.commands.registerCommand('alt:V-Docs', () => {
+        new DocumentationSearch(context.extensionUri.fsPath);
+        DocumentationSearch.showQuickPick();
+    });
     context.subscriptions.push(disposable);
 
+    // Create Status Bar Text
     disposable = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 0);
-    disposable.command = 'alt:V-Test';
-    disposable.text = 'alt:V Docs';
+    disposable.command = 'alt:V-Docs';
+    disposable.text = 'Open alt:V Docs';
     disposable.show();
     context.subscriptions.push(disposable);
 

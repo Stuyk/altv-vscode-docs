@@ -52,9 +52,7 @@ Simply hover over elements and it will tell you if it has information about it o
 
 If you want to browse some information regarding a certain topic you can do that within VSCode.
 
-![](https://i.imgur.com/7iaqB0E.png)
-
-![](https://i.imgur.com/yUxHdHw.png)
+![](https://thumbs.gfycat.com/CarelessDefiantDaddylonglegs-size_restricted.gif)
 
 ## Basic Contribution Guidelines
 
@@ -85,6 +83,10 @@ You can also hit F5 in VSCode to debug the extension.
 ## Changelog
 
 ```
+1.0.9
+- Better Search Box for Documentation Browsing
+- Better Markdown Preview for Documentation Browsing
+
 1.0.8
 - New Built In Documentation Browser
 
