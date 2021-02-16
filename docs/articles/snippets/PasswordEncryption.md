@@ -31,6 +31,8 @@ export function encryptPassword(password) {
 ### Verification
 
 ```js
+import sjcl from 'sjcl';
+
 /**
  * Verify a password matches with pbkdf2.
  * @param {string} password
