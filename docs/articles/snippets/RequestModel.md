@@ -56,3 +56,5 @@ const modelHash = alt.hash('mp_m_freemode_01');
 await RequestModel(modelHash);
 natives.createPed(2, modelHash, 0, 0, 70, 0, false, false);
 ```
+
+<sub>[Source](https://wiki.altv.mp/wiki/Snippet:RequestModel)</sub>
