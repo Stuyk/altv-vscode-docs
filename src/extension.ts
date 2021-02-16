@@ -2,30 +2,9 @@ import * as vscode from 'vscode';
 import { updateJavascriptFile } from './fileReferenceUpdater';
 import { verifyTypes } from './dependencyInstaller';
 import { registerHoverProvider } from './hoverProvider';
-import { OutlineProvider } from './docsTreeView';
+import { DocsViewPanel } from './webview';
 
-const extensionName = `altv-vscode-helper`;
 let extensionPath: null | string = null;
-
-// Tree View Sample
-// const dataObject = {
-//     label: 'level one',
-//     children: [
-//         {
-//             label: 'level two a',
-//             children: [
-//                 {
-//                     label: 'level three',
-//                     children: [],
-//                 },
-//             ],
-//         },
-//         {
-//             label: 'level two b',
-//             children: [],
-//         },
-//     ],
-// };
 
 //Extension
 export async function activate(context: vscode.ExtensionContext) {
@@ -46,20 +25,27 @@ export async function activate(context: vscode.ExtensionContext) {
     const typesReady = await verifyTypes();
 
     if (!typesReady) {
-        vscode.window.showErrorMessage(`alt:V Docs - Did not find type extensions. Please install them now.`);
+        vscode.window.showErrorMessage(`alt:V Docs - Close package.json and re-open VSCode in this folder.`);
         return;
     }
 
-    // Eventual Tree View?
-    // disposable = vscode.window.registerTreeDataProvider('explorer-docs', new OutlineProvider([dataObject, dataObject]));
-    // context.subscriptions.push(disposable);
+    disposable = vscode.commands.registerCommand('alt:V-Test', () => new DocsViewPanel());
+    context.subscriptions.push(disposable);
 
+    disposable = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 0);
+    disposable.command = 'alt:V-Test';
+    disposable.text = 'alt:V Docs';
+    disposable.show();
+    context.subscriptions.push(disposable);
+
+    // Hover Handler
     disposable = registerHoverProvider({ language: 'typescript' }, true);
     context.subscriptions.push(disposable);
 
     disposable = registerHoverProvider({ language: 'javascript' }, true);
     context.subscriptions.push(disposable);
 
+    // Text Editor Handler
     disposable = vscode.window.onDidChangeActiveTextEditor((e) => {
         updateJavascriptFile(e?.document as vscode.TextDocument);
     });

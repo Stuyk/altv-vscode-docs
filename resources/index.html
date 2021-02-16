@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>alt:V Docs</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/atom-one-dark.min.css"
+        />
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css"
+            rel="stylesheet"
+        />
+        <style>
+            body,
+            html,
+            v-application,
+            #app {
+                background: transparent !important;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <v-app>
+                <div class="pa-3">
+                    <v-card class="ma-2 pa-2">
+                        <v-list-item-content class="pa-4">
+                            <h4 class="overline">Search Documentation</h4>
+                            <v-autocomplete v-model="selected" :items="items" dense outlined></v-autocomplete>
+                        </v-list-item-content>
+                    </v-card>
+                    <v-card class="ma-2 pa-2" v-if="markdown !== ''">
+                        <v-list-item-content>
+                            <v-container v-html="getMarkdown"></v-container>
+                        </v-list-item-content>
+                    </v-card>
+                </div>
+            </v-app>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+        <script src="https://unpkg.com/showdown/dist/showdown.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>
+            const app = new Vue({
+                el: '#app',
+                vuetify: new Vuetify({ theme: { dark: true } }),
+                data() {
+                    return {
+                        vscode: null,
+                        updates: 0,
+                        markdown: '',
+                        selected: '',
+                        items: ['test'],
+                        fullItems: [],
+                    };
+                },
+                computed: {
+                    getMarkdown() {
+                        const converter = new showdown.Converter();
+                        return converter.makeHtml(this.markdown);
+                    },
+                },
+                methods: {
+                    handleEventBroker(event) {
+                        const data = event.data;
+                        switch (data.command) {
+                            case 'fetch-files':
+                                this.setFiles(data.files);
+                                break;
+                            case 'fetch-file':
+                                this.setMarkdown(data.markdown);
+                                break;
+                            default:
+                                return;
+                        }
+                    },
+                    setMarkdown(data) {
+                        this.markdown = data;
+
+                        this.$nextTick(() => {
+                            document.querySelectorAll('code').forEach((block) => {
+                                hljs.highlightBlock(block);
+                                block.classList.remove('bash');
+                                block.classList.add(['javascript']);
+                            });
+                        });
+                    },
+                    setFiles(files) {
+                        let regularNames = [];
+
+                        const newFiles = files.map((fileName) => {
+                            const data = {
+                                path: fileName,
+                                name: '',
+                            };
+
+                            let formatter = fileName.replace('docs/', '');
+
+                            if (formatter.includes('Client/')) {
+                                formatter = formatter.replace('Client', '');
+                                formatter = `[Client] ${formatter}`;
+                            } else if (formatter.includes('articles')) {
+                                formatter = `[Article] ${formatter}`;
+                            } else if (formatter.includes('tables')) {
+                                formatter = `[Tables] ${formatter}`;
+                            } else {
+                                formatter = `[Server] ${formatter}`;
+                            }
+
+                            formatter = formatter.replace('.md', '');
+                            formatter = formatter.replace(/\//g, '.');
+                            formatter = formatter.replace('articles.', '');
+                            formatter = formatter.replace('tables.', '');
+
+                            data.name = formatter;
+
+                            regularNames.push(formatter);
+
+                            return data;
+                        });
+
+                        this.items = regularNames;
+                        this.fullItems = newFiles;
+                    },
+                },
+                watch: {
+                    selected(e) {
+                        this.selected = e;
+
+                        const fileData = this.fullItems.find((x) => x.name === e);
+                        if (!fileData) {
+                            console.log('could not find file');
+                            return;
+                        }
+
+                        if (this.vscode) {
+                            this.vscode.postMessage({ command: 'fetch-file', text: fileData.path });
+                        }
+                    },
+                },
+                mounted() {
+                    window.addEventListener('message', this.handleEventBroker);
+
+                    if ('acquireVsCodeApi' in window) {
+                        this.vscode = acquireVsCodeApi();
+                        this.vscode.postMessage({ command: 'fetch-files' });
+                    } else {
+                        this.setMarkdown(
+                            '# Testing What the Fuck \r\n## Hello World\r\n### lulw\r\n Nice message there buddy \r\n\r\n``` const test = helloWorld(); ```'
+                        );
+                    }
+
+                    const htmlDoc = document.getElementsByTagName('html')[0];
+                    htmlDoc.removeAttribute('style');
+                },
+                updated() {
+                    this.$nextTick(() => {
+                        const htmlDoc = document.getElementsByTagName('html')[0];
+                        htmlDoc.removeAttribute('style');
+                    });
+                },
+            });
+        </script>
+    </body>
+</html>

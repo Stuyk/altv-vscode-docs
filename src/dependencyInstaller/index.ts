@@ -16,8 +16,10 @@ export async function verifyTypes() {
         const folders = vscode.workspace.workspaceFolders;
 
         if (!folders || !packageData) {
-            vscode.window.showErrorMessage('alt:V Docs - Failed to load "package.json" aborting.');
-            return;
+            vscode.window.showErrorMessage(
+                'alt:V Docs - Failed to load "package.json" aborting. Please run `npm init` first or close "package.json". Then re-open this window.'
+            );
+            return false;
         }
 
         const rootDirectory = folders[0].uri.fsPath;

@@ -48,6 +48,14 @@ Simply hover over elements and it will tell you if it has information about it o
 
 ![](https://thumbs.gfycat.com/EnviousSecondhandBullfrog-size_restricted.gif)
 
+### Browse Human Written Documentation
+
+If you want to browse some information regarding a certain topic you can do that within VSCode.
+
+![](https://i.imgur.com/7iaqB0E.png)
+
+![](https://i.imgur.com/yUxHdHw.png)
+
 ## Basic Contribution Guidelines
 
 -   Download the Repository
@@ -77,6 +85,9 @@ You can also hit F5 in VSCode to debug the extension.
 ## Changelog
 
 ```
+1.0.8
+- New Built In Documentation Browser
+
 1.0.7
 - Fix Types for Smaller Files
 
