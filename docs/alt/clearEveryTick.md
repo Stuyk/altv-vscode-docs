@@ -4,7 +4,7 @@ description: 'Clears a timer set with the everyTick function.'
 prefix: '[Server]'
 ---
 
-# at.CclearEveryTick
+# alt.clearEveryTick
 
 **Example Usage**
 
