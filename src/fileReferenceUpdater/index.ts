@@ -1,11 +1,12 @@
 import * as vscode from 'vscode';
 import { sleep } from '../utility/sleep';
 
-export async function updateJavascriptFile(document: vscode.TextDocument) {
-    if (!document) {
+export async function injectJavascriptReferences(editor: vscode.TextEditor | undefined) {
+    if (!editor || !editor.document) {
         return;
     }
 
+    const document = editor.document;
     if (document.fileName.includes('.json')) {
         return;
     }

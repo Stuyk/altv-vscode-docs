@@ -4,6 +4,8 @@ description: 'List of all the causes of death.'
 prefix: '[Table]'
 ---
 
+[<-- Back to Tables](./index.md)
+
 # Cause of Death
 
 This object of Cause of Death represents the weaponHash that kills a player.

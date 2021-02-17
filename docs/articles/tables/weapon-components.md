@@ -4,6 +4,8 @@ description: 'List of weapon components.'
 prefix: '[Table]'
 ---
 
+[<-- Back to Tables](./index.md)
+
 # Weapon Components
 
 This section represents weapon components that may be added to individual weapons that have corresponding sections.

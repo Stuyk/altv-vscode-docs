@@ -4,6 +4,7 @@ import * as glob from 'glob';
 import * as fs from 'fs';
 import * as gm from 'gray-matter';
 import { getRootPath } from '../extension';
+import { getHoverFilePath } from '../hoverProvider';
 
 let documentationFiles: Array<{ fileName: string; filePath: string; description: string }> = [];
 
@@ -46,6 +47,28 @@ export class DocumentationSearch {
         console.log(`alt:V IDE - Found: ${documentationFiles.length} files for documentation.`);
     }
 
+    /**
+     * This is triggered by clicking on hoverable markdown files in code.
+     * @static
+     * @param {vscode.TextDocument} e
+     * @return {*}
+     * @memberof DocumentationSearch
+     */
+    static async documentTrigger(e: vscode.TextDocument) {
+        if (!e || !e.fileName || !e.fileName.includes('altvFileOpener')) {
+            return;
+        }
+
+        await vscode.commands.executeCommand(`workbench.action.closeActiveEditor`);
+
+        const filePath = getHoverFilePath();
+        if (filePath === '') {
+            return;
+        }
+
+        vscode.commands.executeCommand('markdown.showPreviewToSide', vscode.Uri.file(filePath));
+    }
+
     static showDocumentation(filePath: string, isHover: boolean = false) {
         const uri = vscode.Uri.file(filePath);
 
@@ -62,7 +85,7 @@ export class DocumentationSearch {
     }
 
     static showGettingStarted() {
-        const uri = vscode.Uri.file(path.join(getRootPath() as string, '/docs/articles/getting-started.md'));
+        const uri = vscode.Uri.file(path.join(getRootPath() as string, '/docs/welcome.md'));
         vscode.commands.executeCommand('markdown.showPreviewToSide', uri, vscode.ViewColumn.Active);
     }
 

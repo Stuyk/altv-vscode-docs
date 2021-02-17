@@ -4,7 +4,9 @@ description: 'Documentation on basic alt:V setup.'
 prefix: '[Article]'
 ---
 
-# Getting Started
+[<-- Back to Articles](./index.md)
+
+# Step 1 - Introduction
 
 This will teach you the basics on getting started with the alt:V Javascript Framework. After completing this getting started guide you should restart your VSCode to ensure the extension is working properly. It will tell you if it is and it will send you back here if you failed to setup your environment properly.
 
@@ -12,13 +14,13 @@ Make sure you go back to the extension page and read about features and how it a
 
 **Table of Contents**
 
--   [Getting Started](#getting-started)
--   [Prerequisites](#prerequisites)
--   [General Assumptions](#general-assumptions)
--   [Installing Server Binaries](#installing-server-binaries)
--   [Installing `altv-pkg`](#installing-altv-pkg)
--   [Using `altv-pkg`](#using-altv-pkg)
--   [Understanding File Structure](#understanding-file-structure)
+-   [Step 1 - Introduction](#step-1---introduction)
+-   [Step 2 - Prerequisites](#step-2---prerequisites)
+    -   [General Assumptions](#general-assumptions)
+-   [Step 3 - Installing Server Binaries](#step-3---installing-server-binaries)
+    -   [Installing `altv-pkg`](#installing-altv-pkg)
+-   [Step 4 - Using `altv-pkg`](#step-4---using-altv-pkg)
+-   [Step 5 - Understanding File Structure](#step-5---understanding-file-structure)
     -   [altv-server](#altv-server)
     -   [package.json](#packagejson)
     -   [server.cfg](#servercfg)
@@ -30,13 +32,13 @@ Make sure you go back to the extension page and read about features and how it a
     -   [/modules](#modules)
     -   [/node_modules](#node_modules)
     -   [/resources](#resources-1)
--   [Opening Up Your Workspace](#opening-up-your-workspace)
--   [Connecting](#connecting)
+-   [Step 6 - Opening Up Your Workspace](#step-6---opening-up-your-workspace)
+-   [Step 7 - Connecting](#step-7---connecting)
 -   [Server-Side](#server-side)
 -   [Client-Side](#client-side)
 -   [Start Coding!](#start-coding)
 
-# Prerequisites
+# Step 2 - Prerequisites
 
 Before you begin please install these programs and utilities.
 
@@ -45,7 +47,7 @@ Before you begin please install these programs and utilities.
 -   [GIT](https://git-scm.com/downloads)
 -   [alt:V Client](https://altv.mp/#/downloads)
 
-# General Assumptions
+## General Assumptions
 
 This guide will be assuming you will be working in a Windows development environment.
 
@@ -54,13 +56,13 @@ This guide will be assuming you will be working in a Windows development environ
 -   You should know that you can run .exe files inside of Command Prompt or Powershell
 -   You should know very basic JavaScript.
 
-# Installing Server Binaries
+# Step 3 - Installing Server Binaries
 
 If you are new to development with alt:V you are going to need to setup your server infrastructure by either [downloading binaries from the official alt:V website](https://altv.mp/#/downloads) or you can simply install `altv-pkg` and it will take care of the rest.
 
 This guide will focus on setting up your Javascript environment with `altv-pkg`.
 
-# Installing `altv-pkg`
+## Installing `altv-pkg`
 
 [altv-pkg](https://github.com/stuyk/altv-pkg) is a utility that will quickly allow you to spin up the server binaries on Windows or Linux. This will also give you a base resource for you to work with.
 
@@ -82,7 +84,7 @@ Verify installion by checking the version.
 altv-pkg --version
 ```
 
-# Using `altv-pkg`
+# Step 4 - Using `altv-pkg`
 
 After installing we'll be downloading the server files.
 
@@ -105,7 +107,7 @@ Follow the on-screen instructions.
 
 ⚠️ It would be wise to restart your VSCode into this workspace if you wish to use the alt:V IDE extension.
 
-# Understanding File Structure
+# Step 5 - Understanding File Structure
 
 It is important to discuss a few of the files and the general structure created after downloading the server binaries. Here are the files or some general files that should have been downloaded after you run `altv-pkg d release`.
 
@@ -269,7 +271,7 @@ Resources is where you create new resources that can be loaded into your server.
 
 If you are using a typescript project you may see source files inside a folder called `/src`
 
-# Opening Up Your Workspace
+# Step 6 - Opening Up Your Workspace
 
 This can be done by opening VSCode and go to `File -> Open Folder`. You will want to open up the entire folder where your `altv-server` is located.
 
@@ -291,7 +293,7 @@ Run your server from command line to ensure everything has loaded properly.
 
 ![](https://i.imgur.com/E6H1Tqr.png)
 
-# Connecting
+# Step 7 - Connecting
 
 You may connect by opening your alt:V Client and using direct connect.
 

@@ -4,6 +4,8 @@ description: 'List of all GTA:V Controls'
 prefix: '[Table]'
 ---
 
+[<-- Back to Tables](./index.md)
+
 # Input Groups & Controls
 
 These controls are used with various natives on **client-side**.

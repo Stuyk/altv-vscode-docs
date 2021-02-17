@@ -4,6 +4,8 @@ description: 'List of all frontend sounds.'
 prefix: '[Table]'
 ---
 
+[<-- Back to Tables](./index.md)
+
 # Frontend Sounds
 
 Keep in mind that not all of these sounds may work. It is suggested to test them individually.

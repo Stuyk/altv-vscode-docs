@@ -4,6 +4,8 @@ description: 'List of weapon tints.'
 prefix: '[Table]'
 ---
 
+[<-- Back to Tables](./index.md)
+
 # Weapon Tint Table
 
 These are weapon tints.

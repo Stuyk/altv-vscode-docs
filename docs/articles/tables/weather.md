@@ -4,6 +4,8 @@ description: 'List of weather ids.'
 prefix: '[Table]'
 ---
 
+[<-- Back to Tables](./index.md)
+
 # Weather IDs
 
 These are the current weather identifiers.

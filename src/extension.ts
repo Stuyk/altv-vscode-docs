@@ -1,17 +1,21 @@
 import * as vscode from 'vscode';
-import { updateJavascriptFile } from './fileReferenceUpdater';
+import { injectJavascriptReferences } from './fileReferenceUpdater';
 import { verifyTypes } from './dependencyInstaller';
-import { getHoverFilePath, registerHoverProvider } from './hoverProvider';
+import { registerHoverProvider } from './hoverProvider';
 import { DocumentationSearch } from './docsSearch';
-import { existsSync, writeFileSync } from 'fs';
+import { existsSync, writeFileSync, readFileSync } from 'fs';
 import * as path from 'path';
 
 let extensionPath: null | string = null;
+let interval: NodeJS.Timeout;
+let extensionContext: vscode.ExtensionContext;
+let disposable;
+let packageData: { version: string };
+let fileName = '.firstLoad';
 
 //Extension
 export async function activate(context: vscode.ExtensionContext) {
-    let disposable;
-
+    extensionContext = context;
     extensionPath = context.extensionPath;
 
     if (!extensionPath) {
@@ -19,8 +23,16 @@ export async function activate(context: vscode.ExtensionContext) {
         return;
     }
 
-    if (!existsSync(path.join(extensionPath, './.firstLoad'))) {
-        writeFileSync(path.join(extensionPath, './.firstLoad'), 'Thanks for trying alt:V IDE!');
+    try {
+        const packageJSON = readFileSync(path.join(extensionPath, 'package.json')).toString();
+        packageData = JSON.parse(packageJSON);
+        fileName = `.version-${packageData.version}`;
+    } catch (err) {
+        console.error(`alt:V IDE - Could not read package.json`);
+    }
+
+    if (!existsSync(path.join(extensionPath, `./${fileName}`))) {
+        writeFileSync(path.join(extensionPath, `./${fileName}`), `${fileName}`);
         DocumentationSearch.showGettingStarted();
     }
 
@@ -29,57 +41,53 @@ export async function activate(context: vscode.ExtensionContext) {
         new DocumentationSearch(context.extensionUri.fsPath);
         DocumentationSearch.showQuickPick();
     });
+
     context.subscriptions.push(disposable);
+    interval = setInterval(waitForSetup, 15000);
+    waitForSetup();
+}
+
+async function waitForSetup() {
+    console.log(`alt:V IDE - Waiting for altv-server...`);
 
     const serverExists = await vscode.workspace.findFiles('altv-server.*');
     if (serverExists.length <= 0) {
         return;
     }
 
-    const typesReady = await verifyTypes();
+    clearInterval(interval);
+
+    // If this happens to fail; we'll just ignore the error and let it be used like normal.
+    // No biggie.
+    const typesReady = await verifyTypes().catch((err) => {
+        return true;
+    });
 
     if (!typesReady) {
-        vscode.window.showErrorMessage(`alt:V Docs - Close package.json and re-open VSCode in this folder.`);
-        DocumentationSearch.showGettingStarted();
         return;
     }
 
-    // Create Status Bar Text
+    // Used to generate the status bar at the bottom of the IDE.
     disposable = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 0);
     disposable.command = 'altv-docs';
     disposable.text = 'Open alt:V Docs';
     disposable.show();
-    context.subscriptions.push(disposable);
+    extensionContext.subscriptions.push(disposable);
 
-    // Hover Handler
+    // Used to generate links to documentation when hovering over elements.
     disposable = registerHoverProvider({ language: 'typescript' }, true);
-    context.subscriptions.push(disposable);
+    extensionContext.subscriptions.push(disposable);
 
     disposable = registerHoverProvider({ language: 'javascript' }, true);
-    context.subscriptions.push(disposable);
+    extensionContext.subscriptions.push(disposable);
 
-    // Used to trigger certain actions when opening from a file.
-    disposable = vscode.workspace.onDidOpenTextDocument((e) => {
-        // Triggered when a file is opened from hover view.
-        if (e?.fileName.includes('altvFileOpener')) {
-            vscode.commands.executeCommand(`workbench.action.closeActiveEditor`).then((res) => {
-                const filePath = getHoverFilePath();
-                if (filePath === '') {
-                    return;
-                }
+    // Used when a markdown link is clicked from within vscode hover features.
+    disposable = vscode.workspace.onDidOpenTextDocument(DocumentationSearch.documentTrigger);
+    extensionContext.subscriptions.push(disposable);
 
-                vscode.commands.executeCommand('markdown.showPreviewToSide', vscode.Uri.file(filePath));
-            });
-            return;
-        }
-    });
-    context.subscriptions.push(disposable);
-
-    // Text Editor Handler
-    disposable = vscode.window.onDidChangeActiveTextEditor((e) => {
-        updateJavascriptFile(e?.document as vscode.TextDocument);
-    });
-    context.subscriptions.push(disposable);
+    // Handles injecting javascript references to .js and .mjs files.
+    disposable = vscode.window.onDidChangeActiveTextEditor(injectJavascriptReferences);
+    extensionContext.subscriptions.push(disposable);
 
     vscode.window.showInformationMessage(`alt:V Docs - Workspace Validated! Let's get coding!`);
 }

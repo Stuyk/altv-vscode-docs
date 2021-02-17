@@ -4,6 +4,8 @@ description: 'List of all explosion types.'
 prefix: '[Table]'
 ---
 
+[<-- Back to Tables](./index.md)
+
 # Explosions List
 
 List of explosions and their IDs that correspond with them.

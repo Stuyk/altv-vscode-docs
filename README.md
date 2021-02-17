@@ -112,10 +112,16 @@ You can also hit F5 in VSCode to debug the extension.
 # Changelog
 
 ```
+1.1.3
+- Refactored Functionality
+- Added Better Getting Started Page
+- Added Backlinks to Getting Started Page
+- Added Better Browsing Experience
+
 1.1.2
 - Added First Time Loading Page
 - Added Getting Started Guide
-- Added new tables
+- Added New Tables
 
 1.1.1
 - Remove Hover Markdown

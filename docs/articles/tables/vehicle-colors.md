@@ -4,6 +4,8 @@ description: 'List of all vehicle color IDs'
 prefix: '[Table]'
 ---
 
+[<-- Back to Tables](./index.md)
+
 # Vehicle Color IDs
 
 List of standard GTA:V colors for GTA:V Vehicles.

@@ -4,6 +4,8 @@ description: 'List of all vehicle mods.'
 prefix: '[Table]'
 ---
 
+[<-- Back to Tables](./index.md)
+
 # Vehicle Mods
 
 Vehicle mods require setting a ModKit in order to use them server-side.

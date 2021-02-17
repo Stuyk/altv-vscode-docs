@@ -9,6 +9,9 @@ export async function verifyTypes() {
     return await vscode.workspace.findFiles('package.json').then(async (res) => {
         // Check if 'package.json' exists.
         if (res.length <= 0) {
+            vscode.window.showErrorMessage(
+                'alt:V Docs - Failed to load "package.json" aborting. Please run `npm init` first or close "package.json". Then re-open vscode in this folder.'
+            );
             return false;
         }
 
@@ -17,7 +20,7 @@ export async function verifyTypes() {
 
         if (!folders || !packageData) {
             vscode.window.showErrorMessage(
-                'alt:V Docs - Failed to load "package.json" aborting. Please run `npm init` first or close "package.json". Then re-open this window.'
+                'alt:V Docs - Failed to load "package.json" aborting. Please run `npm init` first or close "package.json". Then re-open vscode in this folder.'
             );
             return false;
         }

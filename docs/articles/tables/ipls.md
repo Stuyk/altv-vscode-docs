@@ -4,6 +4,8 @@ description: 'List of all missing interiors to load.'
 prefix: '[Table]'
 ---
 
+[<-- Back to Tables](./index.md)
+
 # Missing Interiors IPLs
 
 This is taken from [Dzeknjak's Missing Interiors](https://github.com/jovanivanovic/altv-os-missing-interiors/).

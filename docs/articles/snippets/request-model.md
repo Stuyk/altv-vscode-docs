@@ -4,6 +4,8 @@ description: 'Load the new island from The Cayo Perico Heist Update'
 prefix: '[Snippet]'
 ---
 
+[<-- Back to Snippets](./index.md)
+
 # Request Model
 
 ## Description

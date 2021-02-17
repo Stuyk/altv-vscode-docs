@@ -4,6 +4,8 @@ description: 'All current server events.'
 prefix: '[Server]'
 ---
 
+[<-- Back to Server](../index.md)
+
 # Server Events
 
 This contains all of the server events that are available through the `alt.on` function.
