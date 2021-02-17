@@ -4,6 +4,8 @@ description: 'A way to securely encrypt passwords'
 prefix: '[Snippet]'
 ---
 
+[<-- Back to Snippets](./index.md)
+
 # Encryption / Password Hashing
 
 The following method requires a library called `sjcl`, You can install it by running `npm install sjcl` in your terminal.
@@ -31,6 +33,8 @@ export function encryptPassword(password) {
 ### Verification
 
 ```js
+import sjcl from 'sjcl';
+
 /**
  * Verify a password matches with pbkdf2.
  * @param {string} password

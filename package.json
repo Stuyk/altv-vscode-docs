@@ -2,7 +2,7 @@
     "name": "altv-vscode-docs",
     "displayName": "alt:V IDE",
     "description": "alt:V IDE. It is an Intellisense assistant for alt:V. Documentation browser. Fixes common setup mistakes, hovering over functions gives examples, installs types, and much more...",
-    "version": "1.1.0",
+    "version": "1.1.4",
     "publisher": "stuyk",
     "repository": "https://github.com/stuyk/altv-vscode-docs",
     "engines": {
@@ -20,7 +20,7 @@
         "theme": "dark"
     },
     "activationEvents": [
-        "workspaceContains:altv-server.*"
+        "*"
     ],
     "main": "./out/extension.js",
     "scripts": {
@@ -47,5 +47,13 @@
     "dependencies": {
         "glob": "^7.1.6",
         "gray-matter": "^4.0.2"
+    },
+    "contributes": {
+        "commands": [
+            {
+                "command": "altv-docs",
+                "title": "alt:V Documentation"
+            }
+        ]
     }
 }

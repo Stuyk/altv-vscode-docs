@@ -1,8 +1,11 @@
 import * as vscode from 'vscode';
 import * as path from 'path';
 import * as fs from 'fs';
+import * as gm from 'gray-matter';
 import { camelCaseIt } from '../utility/camelCase';
 import { getRootPath } from '../extension';
+
+let currentFilePath = '';
 
 // These are considered prefixes
 // They return the relative file path that applies to the prefix.
@@ -14,6 +17,11 @@ const prefixCases: { [key: string]: Function } = {
     Player: (word: string) => `Player.${word}`,
     vehicle: (word: string) => `vehicle.${word}`,
     Vehicle: (word: string) => `Vehicle.${word}`,
+    local: (word: string) => `local.${word}`,
+};
+
+const replacements: { [key: string]: string } = {
+    local: 'player',
 };
 
 function getSwitchCaseRule(fullLineText: string, singleWord: string, isClient: boolean = false): string | boolean {
@@ -22,8 +30,10 @@ function getSwitchCaseRule(fullLineText: string, singleWord: string, isClient: b
 
     for (let i = 0; i < keys.length; i++) {
         const newWord = prefixCases[keys[i]](singleWord);
+        // console.log(newWord);
         if (fullLineText.includes(newWord)) {
-            return `${keys[i]}${!isClient ? '' : 'Client'}/${singleWord}`;
+            let folderName = replacements[keys[i]] ? replacements[keys[i]] : keys[i];
+            return `${folderName}${!isClient ? '' : 'Client'}/${singleWord}`;
         }
     }
 
@@ -57,6 +67,7 @@ export function registerHoverProvider(
 
             const extensionPath = getRootPath();
             const switchCaseRule = getSwitchCaseRule(fullLine.text, word, isClient);
+
             let fullPath = path.join(extensionPath as string, `./docs/${word}.md`);
 
             if (switchCaseRule) {
@@ -72,7 +83,19 @@ export function registerHoverProvider(
                 return new vscode.Hover([]);
             }
 
-            return new vscode.Hover(new vscode.MarkdownString('').appendMarkdown(file.toString()));
+            const frontMatter = gm(file.toString());
+            currentFilePath = fullPath;
+
+            const mockFilePath = path.join(extensionPath as string, '/triggers/altvFileOpener.md');
+            const mockFileUri = vscode.Uri.file(mockFilePath);
+
+            return new vscode.Hover(
+                new vscode.MarkdownString(`[>> Open Documentation (${frontMatter.data.title})](${mockFileUri})`)
+            );
         },
     });
+}
+
+export function getHoverFilePath() {
+    return currentFilePath;
 }

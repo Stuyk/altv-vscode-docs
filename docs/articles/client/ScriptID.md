@@ -4,6 +4,8 @@ description: 'A way for us to identify another player or ourselves on client-sid
 prefix: '[Concept]'
 ---
 
+[<-- Back to Concepts](./index.md)
+
 # Understanding ScriptID
 
 ## A General Overview

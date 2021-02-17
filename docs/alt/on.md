@@ -6,6 +6,10 @@ prefix: '[Server]'
 
 # alt.on
 
+Used to listen to events when a player joins, leaves, dies, etc.
+
+See the [server event list](../articles/server/server-events.md) for additional examples.
+
 **Example Usage**
 
 ```js

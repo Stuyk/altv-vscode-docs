@@ -2,27 +2,53 @@
 
 A beautiful way to get information about coding for alt:V without stumbling around in the dark. This will give you information about what you are typing by hovering over different elements in your code. However, it will not cover all elements. Just in most cases you can get general information while working with the alt:V API.
 
+This tool provides human readable examples for the alt:V API while also ensuring that you don't spend too much time weeding through documentation files to figure out how something works.
+
+This is an unofficial community extension for alt:V and the documentation that you find inside of it can be modified and updated.
+
 [Made for Usage with altv.mp](https://altv.mp)
 
-## Installation
+# Setup & Installation
 
-Click the install button above. It's that easy.
+-   Install the Extension
+-   [Retrieve Server Files](https://altv.mp/#/downloads)
+-   Initialize a folder with `npm init`
+-   Setup your workspace with a similar hierachy as below.
+-   Open the folder `myServer` in VSCode.
+-   The extension will notify you if it loaded properly.
 
-## Usage
+```sh
+myServer/
+├─── altv-server.exe OR altv-server
+├─── libnode.dll
+├─── server.cfg
+├─── package.json # From running 'npm init'
+├─── modules/
+│    └─── js-module
+└─── resources*/
+    └─── myResource/
+        ├─── server/
+        ├─── client/
+        └─── resource.cfg
 
-**Important**
-Open up a _workspace folder_ where `altv-server` is located.
+* = Any Folder Name
+```
 
-**!! WARNING !!**
-This will not work without `altv-server` present.
+# Important
 
-## Features
+⚠️ Open up a _workspace folder_ where `altv-server` is located.
 
-### Verifies the alt:V Workspace
+⚠️ This will not work without `altv-server` present.
 
-This will check if `altv-server` is present in your workspace directory.
+⚠️ If it does not work the first time you will need to re-open VSCode.
 
-### Type Installer for alt:V Types
+# Features
+
+## Verifies the alt:V Workspace
+
+Verifies if `altv-server` is present in the current workspace. The rest of the plugin will not load until a proper server infrastructure is setup. Please refer to the **Setup & Installation** guide above.
+
+## Type Installer for alt:V Types
 
 Sets up your workspace to install missing dependencies needed for alt:V.
 
@@ -30,45 +56,48 @@ Sets up your workspace to install missing dependencies needed for alt:V.
 
 ![](https://i.imgur.com/UAuSR7O.png)
 
-### Auto Reference Builder for `.js` and `.mjs`
+## Auto Reference Injector for `.js` and `.mjs`
 
-Adds references to the tops of files if using `.js` or `.mjs`. Which automatically figures out if you're on client-side or server-side.
+Adds references to the tops of files if using `.js` or `.mjs`. Which automatically figures out if you're on client-side or server-side. This is necessary for types to work properly for using non-typescript infrastructure.
 
-![](https://i.imgur.com/30RaULb.png)
+![](https://i.imgur.com/9o3vAM1.png)
 
-### Adds "type": "module" to package.json
+## Forces ES6
 
-Automatically fixes a module bug that users often overlook
+Automatically fixes a module bug that users often overlook. This ensures that you are working in an ES6 environment regardless of whether or not you are using Javascript or Typescript.
 
-![](https://i.imgur.com/uwF7H9F.png)
+![](https://i.imgur.com/Zd8l97d.png)
 
-### Additional Type Information
+## Quickly find Documentation
 
-Simply hover over elements and it will tell you if it has information about it or not.
+Hover over a type to get more information about the type. This uses the official alt:V Types but this also provides human readable examples by clicking on the `>> Open Documentation`.
 
-![](https://thumbs.gfycat.com/EnviousSecondhandBullfrog-size_restricted.gif)
+![](https://thumbs.gfycat.com/FragrantCommonLangur-size_restricted.gif)
 
-### Browse Human Written Documentation
+## Human Written Documentation
 
-If you want to browse some information regarding a certain topic you can do that within VSCode.
+Simply click: `Open alt:V Docs` to bring up built-in documentation for alt:V Types with examples. This will provide basic examples of how to use certain namespaces, functions, and properties.
+
+You can also use the command palette `CTRL + Shift + P` and type `alt:V Documentation` to browse docs.
 
 ![](https://thumbs.gfycat.com/CarelessDefiantDaddylonglegs-size_restricted.gif)
 
-## Basic Contribution Guidelines
+# Basic Contribution Guidelines
 
 -   Download the Repository
 -   Install Dependencies
 -   Start Writing `.md` files in the `docs` folder.
+-   Documentation needs to have examples or be an article about the topic.
+-   New folders need to be programmed in for hovering over elements.
+-   All `.md` files need `Front Matter` headers to be parsed. See other files to get an example of how all of that works.
 
 Basically each folder is a prefix for some documentation.
 
 ![](https://i.imgur.com/gokOSIN.png)
 
-Adding the documentation means it needs to be small. Very small.
+# From Source
 
-Try not to take up more than `10` lines if at all possible.
-
-## Using from Repository
+⚠️ Only useful for making contributions.
 
 If you are running this from the cloned github repository.
 
@@ -80,9 +109,30 @@ If you are running this from the cloned github repository.
 
 You can also hit F5 in VSCode to debug the extension.
 
-## Changelog
+# Changelog
 
 ```
+1.1.4
+- Refactored Functionality
+- Added Better Getting Started Page
+- Added Backlinks to Getting Started Page
+- Added Better Browsing Experience
+
+1.1.2
+- Added First Time Loading Page
+- Added Getting Started Guide
+- Added New Tables
+
+1.1.1
+- Remove Hover Markdown
+- Documentation is now accessible through open 'x' document on hover.
+- Added 'local' replacement for player.
+- Local now shows documentation for client-side player.
+- Updated README to be more feature complete.
+- Added Server Events
+- Added New Concepts
+- Added Tables
+
 1.1.0
 - Add Front Matter to .md Files
 - Add Better Title / Prefix Handling for Files
