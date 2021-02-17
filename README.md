@@ -112,6 +112,10 @@ You can also hit F5 in VSCode to debug the extension.
 # Changelog
 
 ```
+1.1.5
+- Added Bootcamp Tutorial
+- Bootcamp includes 9 pages on getting started with alt:V
+
 1.1.4
 - Refactored Functionality
 - Added Better Getting Started Page

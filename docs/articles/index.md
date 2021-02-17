@@ -12,6 +12,7 @@ prefix: '[Article]'
 
 Here are some places you can visit to get some more information.
 
+-   [Bootcamp](./bootcamp/index.md)
 -   [Getting Started with alt:V Development](./getting-started.md)
 -   [Client](./client/index.md)
 -   [Concepts](./concepts/index.md)

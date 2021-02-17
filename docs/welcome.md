@@ -4,7 +4,7 @@ description: 'The official starting page to get started with alt:V.'
 prefix: '[!!!]'
 ---
 
-<img src="https://i.imgur.com/0aXCU9X.gif" height="150" align="right">&nbsp;&nbsp;<h1>Welcome!</h1>
+<img src="https://i.imgur.com/0aXCU9X.gif" height="150" align="right">&nbsp;&nbsp;<h1>Welcome! v1.1.5</h1>
 
 Thanks for trying the alt:V IDE Extension. We have added our most important links below to get you started with development for alt:V. Please check them out below and make sure you read the original extensions `README` file to fully understand how this extension works.
 
@@ -12,7 +12,15 @@ _You may be seeing this page if the extension just updated_
 
 ## 📝 Getting Started
 
--   [Getting Started with alt:V Development](./articles/getting-started.md)
+<br />
+
+### [Try the alt:V Bootcamp 🚀](articles/bootcamp/index.md)
+
+<br />
+
+Here are some other things you can explore.
+
+-   [Getting Started with alt:V Development](./articles/bootcamp/index.md)
 -   [Articles](./articles/index.md)
 -   [Client Articles](./articles/client/index.md)
 -   [Concepts Articles](./articles/concepts/index.md)
@@ -43,3 +51,11 @@ If you want to learn about something you recently typed and want to get more inf
 -   [Official alt:V Wiki](https://wiki.altv.mp/wiki/Main_Page)
 -   [Official alt:V Natives](https://natives.altv.mp/)
 -   [NodeJS Download](https://nodejs.org/en/download/)
+
+## 🕑 What is New?
+
+```
+1.1.5
+- Added Bootcamp Tutorial
+- Bootcamp includes 9 pages on getting started with alt:V
+```
