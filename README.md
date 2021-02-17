@@ -112,7 +112,7 @@ You can also hit F5 in VSCode to debug the extension.
 # Changelog
 
 ```
-1.1.3
+1.1.4
 - Refactored Functionality
 - Added Better Getting Started Page
 - Added Backlinks to Getting Started Page
