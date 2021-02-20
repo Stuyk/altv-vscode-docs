@@ -6,6 +6,8 @@ prefix: '[Server]'
 
 # player.ping
 
+**Description**
+
 Get the player's current ping.
 
 **Example Usage**

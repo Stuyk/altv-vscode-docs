@@ -6,7 +6,11 @@ prefix: '[Server]'
 
 # player.giveWeapon
 
-Used to give a player a weapon based on a hash from this [page](https://wiki.altv.mp/wiki/GTA:Weapon_Models).
+**Description**
+
+Used to give a player a weapon based on a hash.
+
+[Check out the Weapon Table](../articles/tables/weapons.md)
 
 **Example Usage**
 

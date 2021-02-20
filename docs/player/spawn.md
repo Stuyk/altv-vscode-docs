@@ -6,6 +6,8 @@ prefix: '[Server]'
 
 # player.spawn
 
+**Description**
+
 Used to spawn the player into the world.
 
 _Best paired with `player.model` when spawning players._

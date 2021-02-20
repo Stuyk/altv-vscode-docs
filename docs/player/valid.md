@@ -6,6 +6,8 @@ prefix: '[Server]'
 
 # player.valid
 
+**Description**
+
 Get the validity of the player entity. Checks if they are still a valid entity.
 Useful when you use timeouts and then the player logs out.
 

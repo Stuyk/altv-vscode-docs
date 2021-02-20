@@ -6,6 +6,8 @@ prefix: '[Server]'
 
 # player.dimension
 
+**Description**
+
 Change or get the player's dimension.
 Negative dimensions see positive dimensions. However, positive dimensions do not see negative dimensions.
 

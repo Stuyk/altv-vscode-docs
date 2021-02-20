@@ -6,6 +6,8 @@ prefix: '[Server]'
 
 # player.model
 
+**Description**
+
 Set or get the player's model based on string or number.
 
 **Example Usage**

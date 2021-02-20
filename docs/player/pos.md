@@ -6,6 +6,8 @@ prefix: '[Server]'
 
 # player.pos
 
+**Description**
+
 Set or get the player's position.
 
 **Example Usage**

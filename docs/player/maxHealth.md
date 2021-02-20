@@ -6,6 +6,8 @@ prefix: '[Server]'
 
 # player.maxHealth
 
+**Description**
+
 Used to get or set the player's Maximum Health.
 Makes it larger than 199.
 

@@ -6,7 +6,11 @@ prefix: '[Server]'
 
 # player.removeWeapon
 
-Used to remove a player weapon based on a weapon from this [page](https://wiki.altv.mp/wiki/GTA:Weapon_Models).
+**Description**
+
+Used to remove a player weapon based on a weapon.
+
+[Check out the Weapon Table](../articles/tables/weapons.md)
 
 **Example Usage**
 

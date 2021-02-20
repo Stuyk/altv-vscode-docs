@@ -6,7 +6,11 @@ prefix: '[Server]'
 
 # player.setWeather
 
-Used to set a player's weather. [Weather Info](https://wiki.altv.mp/wiki/GTA:Weather)
+**Description**
+
+Used to set a player's weather.
+
+[Weather IDs & Names](../articles/tables/weather.md)
 
 _If you wish to do weather transitions you must do it client-side._
 

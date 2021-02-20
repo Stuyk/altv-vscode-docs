@@ -6,6 +6,8 @@ prefix: '[Server]'
 
 # player.currentWeapon
 
+**Description**
+
 Get the current weapon in the player's hand as a hash.
 
 **Example Usage**

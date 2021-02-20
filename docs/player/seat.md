@@ -6,6 +6,8 @@ prefix: '[Server]'
 
 # player.seat
 
+**Description**
+
 Get the player's seat if they are in a vehicle.
 _Note: Driver seat starts at -1 on client-side._
 

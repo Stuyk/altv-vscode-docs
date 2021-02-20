@@ -6,6 +6,8 @@ prefix: '[Server]'
 
 # player.authToken
 
+**Description**
+
 Used in tandem with [earlyAuth](https://wiki.altv.mp/wiki/Tutorial:Setup_EarlyAuth)
 
 **Example Usage**

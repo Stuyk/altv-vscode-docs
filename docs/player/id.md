@@ -6,6 +6,8 @@ prefix: '[Server]'
 
 # player.id
 
+**Description**
+
 Get the player's identification number for server or client-side.
 
 **Example Usage**

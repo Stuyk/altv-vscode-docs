@@ -6,6 +6,8 @@ prefix: '[Server]'
 
 # player.ip
 
+**Description**
+
 Get the player's IP Address
 
 **Example Usage**

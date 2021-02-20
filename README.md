@@ -112,6 +112,18 @@ You can also hit F5 in VSCode to debug the extension.
 # Changelog
 
 ```
+1.1.6
+- Added Snippet for Help Text
+- Added Snippet for Markers
+- Added Snippet for Notifications
+- Added Snippet for Prototyping
+- Added Snippet for Text Labels
+- Added Snippet for Voice
+- Added New Snippets to Snippet Directory
+- Added Section 10 to Bootcamp
+- Added Section 11 to Bootcamp
+- Misc. Changes to `player` Section
+
 1.1.5
 - Added Bootcamp Tutorial
 - Bootcamp includes 9 pages on getting started with alt:V

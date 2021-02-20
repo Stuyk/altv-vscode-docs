@@ -6,6 +6,8 @@ prefix: '[Server]'
 
 # player.vehicle
 
+**Description**
+
 Get the player's current vehicle.
 
 **Example Usage**

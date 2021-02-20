@@ -23,5 +23,6 @@ prefix: '[Table]'
 -   [Vehicle Window Tint](./vehicle-window-tint.md)
 -   [Weapon Components](./weapon-components.md)
 -   [Weapon Pickups](./weapon-pickups.md)
+-   [Weapons](./weapons.md)
 -   [Weapon Tint](./weapon-tint.md)
 -   [Weather](./weather.md)

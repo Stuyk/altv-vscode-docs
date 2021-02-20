@@ -23,12 +23,6 @@ In this course we will be using a Windows environment since that is what GTA:V r
 
 After installing the above requirements you should be free to start this course.
 
-<center>
-<br />
-<a href="./001.md"><h2>Start the Course 🚀</h2></a>
-<br />
-</center>
-
 ## 📄 Course Material
 
 -   [1 - The alt:V Client](./001.md)
@@ -40,4 +34,10 @@ After installing the above requirements you should be free to start this course.
 -   [7 - Adding a Resource](./007.md)
 -   [8 - Understanding VSCode & Javascript](./008.md)
 -   [9 - Spawning the Player](./009.md)
--   More to be added soon.
+-   [10 - Respawning the Player](./010.md)
+-   [11 - Spawning a Vehicle](./011.md)
+-   12 - Will be added sometime soon.
+
+<br />
+<a href="./001.md"><h2>Start the Course 🚀</h2></a>
+<br />

@@ -6,6 +6,8 @@ prefix: '[Server]'
 
 # player.rot
 
+**Description**
+
 Set or get the player's rotation.
 
 **Example Usage**

@@ -6,6 +6,8 @@ prefix: '[Server]'
 
 # player.flashlightActive
 
+**Description**
+
 Check if flashlight is active for this player.
 
 **Example Usage**

@@ -6,6 +6,8 @@ prefix: '[Server]'
 
 # player.visible
 
+**Description**
+
 Set or get the player's visbility.
 
 **Example Usage**

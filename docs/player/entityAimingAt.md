@@ -6,6 +6,8 @@ prefix: '[Server]'
 
 # player.entityAimingAt
 
+**Description**
+
 Get the vehicle, player, etc. that the player is aiming at.
 
 **Example Usage**

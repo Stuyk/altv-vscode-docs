@@ -6,6 +6,8 @@ prefix: '[Server]'
 
 # player.removeAllWeapons
 
+**Description**
+
 Remove all weapons from a player.
 
 **Example Usage**

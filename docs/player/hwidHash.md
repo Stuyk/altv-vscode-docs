@@ -6,6 +6,8 @@ prefix: '[Server]'
 
 # player.hwidHash
 
+**Description**
+
 Get some unique hardware information for this player.
 
 **Example Usage**

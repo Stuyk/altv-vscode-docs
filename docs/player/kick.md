@@ -6,6 +6,8 @@ prefix: '[Server]'
 
 # player.kick
 
+**Description**
+
 Kick a player with a reason.
 
 **Example Usage**
