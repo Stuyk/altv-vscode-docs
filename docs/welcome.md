@@ -38,6 +38,14 @@ If you want to learn about something you recently typed and want to get more inf
 
 [Example Image](https://i.imgur.com/lFBbIjD.png)
 
+## 💭 Support this Extension?
+
+There's a handful of ways you can contribute or assist with this extension. This extension is meant to assist with development and teach new developers concepts inside of GTA:V. All of the documentation writtein here is in `.md` format so it makes it accessible for VSCode but also allows for other software like Docusaurus, VuePress, etc. to easily work with the `.md` files.
+
+-   [⭐ Write a Review](https://marketplace.visualstudio.com/items?itemName=stuyk.altv-vscode-docs&ssr=false#review-details)
+-   [⌨️ Write Articles](https://github.com/Stuyk/altv-vscode-docs/tree/master/docs)
+-   [💭 Build Cool New Features](https://github.com/microsoft/vscode-extension-samples)
+
 ## 🔗 Important Links
 
 -   [Official alt:V Website](https://altv.mp/#/)
