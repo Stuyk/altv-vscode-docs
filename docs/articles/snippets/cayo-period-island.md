@@ -212,3 +212,5 @@ alt.everyTick(() => {
     }
 });
 ```
+
+<sub>[Source](https://wiki.altv.mp/wiki/Snippet:Cayo_Perico_Island)</sub>
