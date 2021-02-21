@@ -10,6 +10,12 @@ prefix: '[Server]'
 
 Set or get the player's position.
 
+**Syntax**
+
+```ts
+public pos: { x: number, y: number, z: number };
+```
+
 **Example Usage**
 
 ```js

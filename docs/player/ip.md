@@ -10,6 +10,12 @@ prefix: '[Server]'
 
 Get the player's IP Address
 
+**Syntax**
+
+```ts
+readonly ip: string;
+```
+
 **Example Usage**
 
 ```js

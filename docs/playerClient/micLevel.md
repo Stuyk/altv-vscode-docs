@@ -8,6 +8,12 @@ prefix: '[Client]'
 
 Get the current micLevel of a player.
 
+**Syntax**
+
+```ts
+readonly micLevel: number;
+```
+
 **Example Usage**
 
 ```js

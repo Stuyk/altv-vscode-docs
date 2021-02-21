@@ -8,6 +8,12 @@ prefix: '[Client]'
 
 Get the player's model based on string or number.
 
+**Syntax**
+
+```ts
+readonly model: number;
+```
+
 **Example Usage**
 
 ```js

@@ -10,6 +10,12 @@ prefix: '[Server]'
 
 Set or get the player's model based on string or number.
 
+**Syntax**
+
+```ts
+readonly model: number | string;
+```
+
 **Example Usage**
 
 ```js

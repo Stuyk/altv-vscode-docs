@@ -10,6 +10,12 @@ prefix: '[Server]'
 
 Set or get the player's visbility.
 
+**Syntax**
+
+```ts
+readonly vehicle: Vehicle | null;
+```
+
 **Example Usage**
 
 ```js

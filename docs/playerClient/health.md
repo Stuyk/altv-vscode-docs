@@ -8,6 +8,12 @@ prefix: '[Client]'
 
 Used to obtain a player's health.
 
+**Syntax**
+
+```ts
+readonly health: number;
+```
+
 **Example Usage**
 
 ```js

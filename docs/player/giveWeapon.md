@@ -12,6 +12,12 @@ Used to give a player a weapon based on a hash.
 
 [Check out the Weapon Table](../articles/tables/weapons.md)
 
+**Syntax**
+
+```ts
+giveWeapon(weaponHash: number, ammo: number, equipNow: boolean): void;
+```
+
 **Example Usage**
 
 ```js

@@ -4,7 +4,7 @@ description: 'The official starting page to get started with alt:V.'
 prefix: '[!!!]'
 ---
 
-<img src="https://i.imgur.com/0aXCU9X.gif" height="150" align="right">&nbsp;&nbsp;<h1>Welcome! v1.1.6</h1>
+<img src="https://i.imgur.com/0aXCU9X.gif" height="150" align="right">&nbsp;&nbsp;<h1>Welcome! v1.1.7</h1>
 
 Thanks for trying the alt:V IDE Extension. We have added our most important links below to get you started with development for alt:V. Please check them out below and make sure you read the original extensions `README` file to fully understand how this extension works.
 
@@ -52,20 +52,19 @@ There's a handful of ways you can contribute or assist with this extension. This
 -   [Official alt:V Discord](https://discord.altv.mp/)
 -   [Official alt:V Wiki](https://wiki.altv.mp/wiki/Main_Page)
 -   [Official alt:V Natives](https://natives.altv.mp/)
+-   [Official alt:V Docs](https://docs.altv.mp/)
 -   [NodeJS Download](https://nodejs.org/en/download/)
 
 ## 🕑 What is New?
 
 ```
-1.1.6
-- Added Snippet for Help Text
-- Added Snippet for Markers
-- Added Snippet for Notifications
-- Added Snippet for Prototyping
-- Added Snippet for Text Labels
-- Added Snippet for Voice
-- Added New Snippets to Snippet Directory
-- Added Section 10 to Bootcamp
-- Added Section 11 to Bootcamp
-- Misc. Changes to `player` Section
+1.1.7
+- Updated Welcome Page
+- Added RAGE:MP Migration Page
+- Updated Various Player Documentation
+- Added Meta Documentation
+- Added Documentation for client-side player
+- Added Syntax for client-side player and server-side player.
+- Added How to Install the Chat Resource
+- Added How to Write Commands for Chat Resource
 ```

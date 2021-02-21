@@ -8,6 +8,12 @@ prefix: '[Client]'
 
 Get the player's rotation.
 
+**Syntax**
+
+```ts
+readonly rot: { x: number, y: number, z: number };
+```
+
 **Example Usage**
 
 ```js

@@ -36,7 +36,8 @@ After installing the above requirements you should be free to start this course.
 -   [9 - Spawning the Player](./009.md)
 -   [10 - Respawning the Player](./010.md)
 -   [11 - Spawning a Vehicle](./011.md)
--   12 - Will be added sometime soon.
+-   [12 - Adding the Chat Resource](./012.md)
+-   [13 - Writing Commands](./013.md)
 
 <br />
 <a href="./001.md"><h2>Start the Course 🚀</h2></a>

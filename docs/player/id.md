@@ -10,6 +10,12 @@ prefix: '[Server]'
 
 Get the player's identification number for server or client-side.
 
+**Syntax**
+
+```ts
+readonly id: number;
+```
+
 **Example Usage**
 
 ```js

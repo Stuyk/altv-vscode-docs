@@ -10,6 +10,12 @@ prefix: '[Server]'
 
 Used in tandem with [earlyAuth](https://wiki.altv.mp/wiki/Tutorial:Setup_EarlyAuth)
 
+**Syntax**
+
+```ts
+readonly authToken: string;
+```
+
 **Example Usage**
 
 ```js

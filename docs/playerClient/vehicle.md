@@ -8,6 +8,12 @@ prefix: '[Client]'
 
 Get the player's current vehicle.
 
+**Syntax**
+
+```ts
+readonly vehicle: Vehicle | null;
+```
+
 **Example Usage**
 
 ```js

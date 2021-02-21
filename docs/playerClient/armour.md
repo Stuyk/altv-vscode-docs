@@ -8,6 +8,12 @@ prefix: '[Client]'
 
 Used to obtain a player's armour.
 
+**Syntax**
+
+```ts
+readonly armour: number;
+```
+
 **Example Usage**
 
 ```js

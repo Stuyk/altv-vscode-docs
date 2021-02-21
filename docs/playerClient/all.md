@@ -12,6 +12,14 @@ The properties available on individual players varies based on server-side or cl
 
 Which means `ping` is not available on client-side but it is available on server-side.
 
+The position of the player on client-side may only be obtained when a player is within streaming range of your local player. This is an important concept to understand.
+
+**Syntax**
+
+```ts
+readonly all: Array<Player>;
+```
+
 **Example Usage**
 
 ```js

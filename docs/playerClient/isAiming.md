@@ -8,6 +8,12 @@ prefix: '[Client]'
 
 Get if the player is currently aiming.
 
+**Syntax**
+
+```ts
+readonly isAiming: boolean;
+```
+
 **Example Usage**
 
 ```js

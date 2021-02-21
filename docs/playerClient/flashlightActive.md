@@ -8,6 +8,12 @@ prefix: '[Client]'
 
 Check if flashlight is active for this player.
 
+**Syntax**
+
+```ts
+readonly flashlightActive: boolean;
+```
+
 **Example Usage**
 
 ```js

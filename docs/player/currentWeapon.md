@@ -10,6 +10,12 @@ prefix: '[Server]'
 
 Get the current weapon in the player's hand as a hash.
 
+**Syntax**
+
+```ts
+readonly currentWeapon: number;
+```
+
 **Example Usage**
 
 ```js

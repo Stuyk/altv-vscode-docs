@@ -12,6 +12,12 @@ Used to set a player's date and time.
 
 Highly recommended to disable player clock on client-side while using this.
 
+**Syntax**
+
+```ts
+setDateTime(day: DateTimeDay, month: DateTimeMonth, year: number, hour: DateTimeHour, minute: DateTimeMinute, second: DateTimeSecond): void;
+```
+
 **Example Usage**
 
 ```js

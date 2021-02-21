@@ -8,6 +8,12 @@ prefix: '[Client]'
 
 This is your local player instance. You must use **scriptID** with a native for it to function when it asks for a `ped` or `entity`.
 
+**Syntax**
+
+```ts
+readonly local: Player;
+```
+
 **Example Usage**
 
 ```js

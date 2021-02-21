@@ -14,6 +14,12 @@ Used to set a player's weather.
 
 _If you wish to do weather transitions you must do it client-side._
 
+**Syntax**
+
+```ts
+setWeather(weatherType: WeatherType): void;
+```
+
 **Example Usage**
 
 ```js

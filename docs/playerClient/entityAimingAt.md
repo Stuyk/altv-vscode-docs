@@ -8,6 +8,12 @@ prefix: '[Client]'
 
 Get the vehicle, player, etc. that the player is aiming at.
 
+**Syntax**
+
+```ts
+readonly entityAimingAt: Entity | null;
+```
+
 **Example Usage**
 
 ```js

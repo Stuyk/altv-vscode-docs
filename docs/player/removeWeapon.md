@@ -12,6 +12,12 @@ Used to remove a player weapon based on a weapon.
 
 [Check out the Weapon Table](../articles/tables/weapons.md)
 
+**Syntax**
+
+```ts
+removeWeapon(weaponHash: number): void;
+```
+
 **Example Usage**
 
 ```js

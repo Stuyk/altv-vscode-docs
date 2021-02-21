@@ -8,6 +8,12 @@ prefix: '[Client]'
 
 Get if the player is currently in Ragdoll Mode.
 
+**Syntax**
+
+```ts
+readonly isInRagdoll: boolean;
+```
+
 **Example Usage**
 
 ```js

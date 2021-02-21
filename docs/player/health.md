@@ -10,6 +10,12 @@ prefix: '[Server]'
 
 Used to obtain or change a player's health.
 
+**Syntax**
+
+```ts
+health: number;
+```
+
 **Example Usage**
 
 ```js

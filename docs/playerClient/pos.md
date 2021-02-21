@@ -8,6 +8,12 @@ prefix: '[Client]'
 
 Get the player's position.
 
+**Syntax**
+
+```ts
+readonly pos: { x: number, y: number, z: number };
+```
+
 **Example Usage**
 
 ```js

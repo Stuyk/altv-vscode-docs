@@ -8,6 +8,12 @@ prefix: '[Client]'
 
 Get the player's visbility.
 
+**Syntax**
+
+```ts
+readonly visible: boolean;
+```
+
 **Example Usage**
 
 ```js

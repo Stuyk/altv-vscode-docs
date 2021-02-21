@@ -8,6 +8,12 @@ prefix: '[Client]'
 
 Get if the player is currently using their voice.
 
+**Syntax**
+
+```ts
+readonly isTalking: boolean;
+```
+
 **Example Usage**
 
 ```js

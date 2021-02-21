@@ -10,6 +10,12 @@ prefix: '[Server]'
 
 Set or get the player's rotation.
 
+**Syntax**
+
+```ts
+public rot: { x: number, y: number, z: number };
+```
+
 **Example Usage**
 
 ```js

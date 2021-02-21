@@ -10,6 +10,12 @@ prefix: '[Server]'
 
 Get the player's current ping.
 
+**Syntax**
+
+```ts
+readonly ping: number;
+```
+
 **Example Usage**
 
 ```js

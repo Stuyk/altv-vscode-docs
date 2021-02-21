@@ -8,6 +8,12 @@ prefix: '[Client]'
 
 Get the current movement speed of a player.
 
+**Syntax**
+
+```ts
+readonly moveSpeed: number;
+```
+
 **Example Usage**
 
 ```js

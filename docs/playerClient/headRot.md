@@ -8,6 +8,12 @@ prefix: '[Client]'
 
 Get the player's head rotation.
 
+**Syntax**
+
+```ts
+readonly headRot: number;
+```
+
 **Example Usage**
 
 ```js

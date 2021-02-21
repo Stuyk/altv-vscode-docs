@@ -6,7 +6,13 @@ prefix: '[Client]'
 
 # alt.Player.local.id
 
-Get the player's identification number for server or client-side.
+Get the player's identification number for server-side or client-side.
+
+**Syntax**
+
+```ts
+readonly id: number;
+```
 
 **Example Usage**
 

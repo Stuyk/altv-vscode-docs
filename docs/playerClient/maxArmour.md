@@ -8,6 +8,12 @@ prefix: '[Client]'
 
 Used to get the player's Maximum Armour.
 
+**Syntax**
+
+```ts
+readonly maxArmour: number;
+```
+
 **Example Usage**
 
 ```js

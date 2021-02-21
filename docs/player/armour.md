@@ -10,7 +10,7 @@ prefix: '[Server]'
 
 Used to get or set a player's armour.
 
-**Definition**
+**Syntax**
 
 ```ts
 player.armour: number;

@@ -8,6 +8,12 @@ prefix: '[Client]'
 
 Used to get the player's Maximum Health.
 
+**Syntax**
+
+```ts
+readonly maxHealth: number;
+```
+
 **Example Usage**
 
 ```js

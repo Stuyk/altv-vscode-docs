@@ -10,6 +10,12 @@ prefix: '[Server]'
 
 Kick a player with a reason.
 
+**Syntax**
+
+```ts
+kick(reason?: string): void;
+```
+
 **Example Usage**
 
 ```js

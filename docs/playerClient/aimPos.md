@@ -8,6 +8,12 @@ prefix: '[Client]'
 
 Get the position of where a player is aiming.
 
+**Syntax**
+
+```ts
+readonly aimPos: {x: number, y: number, z: number};
+```
+
 **Example Usage**
 
 ```js

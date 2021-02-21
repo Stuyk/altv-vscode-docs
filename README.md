@@ -112,6 +112,16 @@ You can also hit F5 in VSCode to debug the extension.
 # Changelog
 
 ```
+1.1.7
+- Updated Welcome Page
+- Added RAGE:MP Migration Page
+- Updated Various Player Documentation
+- Added Meta Documentation
+- Added Documentation for client-side player
+- Added Syntax for client-side player and server-side player.
+- Added How to Install the Chat Resource
+- Added How to Write Commands for Chat Resource
+
 1.1.6
 - Added Snippet for Help Text
 - Added Snippet for Markers

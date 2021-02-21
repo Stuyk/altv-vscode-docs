@@ -10,6 +10,12 @@ prefix: '[Server]'
 
 Get some unique hardware information for this player.
 
+**Syntax**
+
+```ts
+hwidHash: string;
+```
+
 **Example Usage**
 
 ```js

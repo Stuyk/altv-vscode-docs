@@ -10,6 +10,12 @@ prefix: '[Server]'
 
 Remove all weapons from a player.
 
+**Syntax**
+
+```ts
+removeAllWeapons(): void;
+```
+
 **Example Usage**
 
 ```js

@@ -11,6 +11,12 @@ prefix: '[Server]'
 Used to get or set the player's Maximum Armour.
 Makes it larger than 100.
 
+**Syntax**
+
+```ts
+maxArmour: number;
+```
+
 **Example Usage**
 
 ```js

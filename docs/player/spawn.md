@@ -12,6 +12,12 @@ Used to spawn the player into the world.
 
 _Best paired with `player.model` when spawning players._
 
+**Syntax**
+
+```ts
+spawn(x: number, y: number, z: number, delay: number): void;
+```
+
 **Example Usage**
 
 ```js
