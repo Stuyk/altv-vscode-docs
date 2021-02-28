@@ -14,3 +14,5 @@ addGxtText('gxtBlipName', 'Renamed player blip');
 const blip = native.getFirstBlipInfoId(6);
 setBlipNameFromTextFile(blip, 'gxtBlipName');
 ```
+
+_The GXT Text `FE_THDR_GTAO` is locked by alt:V and cannot be changed_
