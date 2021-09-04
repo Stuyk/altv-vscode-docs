@@ -109,7 +109,7 @@ You can also hit F5 in VSCode to debug the extension.
 # Changelog
 
 ```
-2.0.3 - 2.0.4
+2.0.3 - 2.0.6
 - Fix URLs
 
 2.0.2
