@@ -66,13 +66,9 @@ export async function verifyTypes() {
 
         let allPassed = true;
 
+        // Forcefully installs all the latest typings.
         for (let i = 0; i < packagesToInstall.length; i++) {
             const packageName = packagesToInstall[i];
-
-            if (packageData.includes(packageName)) {
-                continue;
-            }
-
             await installPkg([packageName], { saveDev: true, cwd: rootDirectory }).catch((err) => {
                 console.log(err);
                 allPassed = false;

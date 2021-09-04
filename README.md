@@ -84,16 +84,13 @@ You can also use the command palette `CTRL + Shift + P` and type `alt:V Document
 
 # Basic Contribution Guidelines
 
--   Download the Repository
--   Install Dependencies
--   Start Writing `.md` files in the `docs` folder.
--   Documentation needs to have examples or be an article about the topic.
--   New folders need to be programmed in for hovering over elements.
--   All `.md` files need `Front Matter` headers to be parsed. See other files to get an example of how all of that works.
+Want to improve the documentation?
 
-Basically each folder is a prefix for some documentation.
+Head on over to [https://github.com/Stuyk/altv-markdown-docs](https://github.com/Stuyk/altv-markdown-docs).
 
-![](https://i.imgur.com/gokOSIN.png)
+Inside you will find various markdown files with plenty of examples.
+
+Simply create a `pull request` to update a file and get the documentation updated.
 
 # From Source
 
@@ -112,6 +109,10 @@ You can also hit F5 in VSCode to debug the extension.
 # Changelog
 
 ```
+2.0.2
+- Fix package installation.
+- Force install latest packages.
+
 2.0.1
 - Removed non-stop welcome screen.
 - Added jsconfig.json check.

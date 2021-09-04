@@ -9,6 +9,10 @@ export function installPkg(packages: Array<string>, opts: any) {
         packages = [packages];
     }
 
+    for(let i = 0; i < packages.length; i++) {
+        packages[i] = `${packages[i]}@latest`
+    }
+
     if (!opts) {
         opts = {};
     }
@@ -16,13 +20,7 @@ export function installPkg(packages: Array<string>, opts: any) {
     const cmdString =
         'npm install ' +
         packages.join(' ') +
-        ' ' +
-        (opts.global ? ' -g' : '') +
-        (opts.save ? ' --save' : ' --no-save') +
-        (opts.saveDev ? ' --save-dev' : '') +
-        (opts.legacyBundling ? ' --legacy-bundling' : '') +
-        (opts.noOptional ? ' --no-optional' : '') +
-        (opts.ignoreScripts ? ' --ignore-scripts' : '');
+        ' ' + '--save-dev'
 
     return new Promise((resolve, reject) => {
         exec(
