@@ -1,10 +1,11 @@
-import * as vscode from 'vscode';
-import * as path from 'path';
-import * as glob from 'glob';
 import * as fs from 'fs';
+import * as glob from 'glob';
 import * as gm from 'gray-matter';
+import * as path from 'path';
+import * as vscode from 'vscode';
+
 import { getRootPath } from '../extension';
-import { getHoverFilePath } from '../hoverProvider';
+import { getUrlFromFilePath } from '../utility/uriPaths';
 
 let documentationFiles: Array<{ fileName: string; filePath: string; description: string }> = [];
 
@@ -47,46 +48,30 @@ export class DocumentationSearch {
         console.log(`alt:V IDE - Found: ${documentationFiles.length} files for documentation.`);
     }
 
-    /**
-     * This is triggered by clicking on hoverable markdown files in code.
-     * @static
-     * @param {vscode.TextDocument} e
-     * @return {*}
-     * @memberof DocumentationSearch
-     */
-    static async documentTrigger(e: vscode.TextDocument) {
-        if (!e || !e.fileName || !e.fileName.includes('altvFileOpener')) {
-            return;
-        }
-
-        await vscode.commands.executeCommand(`workbench.action.closeActiveEditor`);
-
-        const filePath = getHoverFilePath();
-        if (filePath === '') {
-            return;
-        }
-
-        vscode.commands.executeCommand('markdown.showPreviewToSide', vscode.Uri.file(filePath));
-    }
-
-    static showDocumentation(filePath: string, isHover: boolean = false) {
-        const uri = vscode.Uri.file(filePath);
-
-        if (!isHover) {
-            vscode.commands.executeCommand('markdown.showPreviewToSide', uri, vscode.ViewColumn.Active);
-            return;
-        }
-
-        vscode.commands.executeCommand(
-            'markdown.showPreviewToSide',
-            uri,
-            vscode.ViewColumn.Beside | vscode.ViewColumn.Active | vscode.ViewColumn.Two
-        );
-    }
-
     static showGettingStarted() {
-        const uri = vscode.Uri.file(path.join(getRootPath() as string, '/docs/welcome.md'));
+        const uri = vscode.Uri.file(path.join(getRootPath() as string, '/docsStatic/welcome.md'));
         vscode.commands.executeCommand('markdown.showPreviewToSide', uri, vscode.ViewColumn.Active);
+    }
+
+    static openUrlPath(result: { title: string, url: string }) {
+        if (!result || !result.url) {
+            return;
+        }
+
+        const panel = vscode.window.createWebviewPanel('altvDocLookup', result.title, vscode.ViewColumn.Beside, {});
+        panel.webview.html = `
+            <!DOCTYPE html>
+            <html lang="en" style="height: 100%">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>${result.title}</title>
+            </head>
+            <body style="margin:0px;padding:0px;overflow:hidden; height: 100%;">
+                <iframe src="${result.url}" frameborder="0" style="overflow:hidden;height:100%;width:100%" height="100%" width="100%"></iframe>
+            </body>
+            </html>
+        `;
     }
 
     static showQuickPick() {
@@ -107,7 +92,10 @@ export class DocumentationSearch {
                 return;
             }
 
-            DocumentationSearch.showDocumentation(selected.filePath);
+            console.log(selected.label);
+
+            const result = getUrlFromFilePath(selected.filePath);
+            DocumentationSearch.openUrlPath({ title: selected.label, url: result })
             quickPick.dispose();
         });
 

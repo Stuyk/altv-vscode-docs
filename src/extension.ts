@@ -1,10 +1,10 @@
-import * as vscode from 'vscode';
-import { injectJavascriptReferences } from './fileReferenceUpdater';
-import { verifyTypes } from './dependencyInstaller';
-import { registerHoverProvider } from './hoverProvider';
-import { DocumentationSearch } from './docsSearch';
-import { existsSync, writeFileSync, readFileSync } from 'fs';
+import { existsSync, readFileSync, writeFileSync } from 'fs';
 import * as path from 'path';
+import * as vscode from 'vscode';
+
+import { verifyTypes } from './dependencyInstaller';
+import { DocumentationSearch } from './docsSearch';
+import { registerHoverProvider } from './hoverProvider';
 
 let extensionPath: null | string = null;
 let interval: NodeJS.Timeout;
@@ -31,10 +31,10 @@ export async function activate(context: vscode.ExtensionContext) {
         console.error(`alt:V IDE - Could not read package.json`);
     }
 
-    if (!existsSync(path.join(extensionPath, `./${fileName}`))) {
-        writeFileSync(path.join(extensionPath, `./${fileName}`), `${fileName}`);
+    // if (!existsSync(path.join(extensionPath, `./${fileName}`))) {
+    //     writeFileSync(path.join(extensionPath, `./${fileName}`), `${fileName}`);
         DocumentationSearch.showGettingStarted();
-    }
+    // }
 
     // Status Bar Docs Command
     disposable = vscode.commands.registerCommand('altv-docs', () => {
@@ -74,6 +74,9 @@ async function waitForSetup() {
     disposable.show();
     extensionContext.subscriptions.push(disposable);
 
+    // Used to open a webview url path to `altv.stuyk.com`
+    disposable = vscode.commands.registerCommand('altv-vscode-docs.open-webview', DocumentationSearch.openUrlPath);
+
     // Used to generate links to documentation when hovering over elements.
     disposable = registerHoverProvider({ language: 'typescript' }, true);
     extensionContext.subscriptions.push(disposable);
@@ -81,15 +84,23 @@ async function waitForSetup() {
     disposable = registerHoverProvider({ language: 'javascript' }, true);
     extensionContext.subscriptions.push(disposable);
 
-    // Used when a markdown link is clicked from within vscode hover features.
-    disposable = vscode.workspace.onDidOpenTextDocument(DocumentationSearch.documentTrigger);
-    extensionContext.subscriptions.push(disposable);
+    // Tell people to stop using old shit we don't use anymore.
+    disposable = vscode.window.onDidChangeActiveTextEditor((e: vscode.TextEditor | undefined) => {
+        if (!e || !e.document) {
+            return;
+        }
 
-    // Handles injecting javascript references to .js and .mjs files.
-    disposable = vscode.window.onDidChangeActiveTextEditor(injectJavascriptReferences);
-    extensionContext.subscriptions.push(disposable);
+        if (!e.document.fileName.includes('.mjs')) {
+            return;
+        }
 
-    vscode.window.showInformationMessage(`alt:V Docs - Workspace Validated! Let's get coding!`);
+        vscode.window.showErrorMessage(`[alt:V IDE] We stopped using .mjs a long time ago. 
+            Change all your file extensions to .js and please add "type": "module" to your package.json to make it work.`
+        );
+    });
+
+    extensionContext.subscriptions.push(disposable);
+    vscode.window.showInformationMessage(`alt:V IDE - Workspace Validated! Let's get coding!`);
 }
 
 export function getRootPath(): string | null {

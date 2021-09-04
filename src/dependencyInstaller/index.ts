@@ -1,9 +1,16 @@
-import * as vscode from 'vscode';
 import * as fs from 'fs';
 import * as path from 'path';
+import * as vscode from 'vscode';
+
 import { installPkg } from '../utility/installPkg';
 
-const packagesToInstall = ['@altv/types-client', '@altv/types-natives', '@altv/types-server', '@altv/types-webview'];
+const packagesToInstall = [
+    '@altv/types-client',
+    '@altv/types-natives',
+    '@altv/types-server',
+    '@altv/types-webview',
+    '@altv/types-shared',
+];
 
 export async function verifyTypes() {
     return await vscode.workspace.findFiles('package.json').then(async (res) => {
@@ -32,7 +39,21 @@ export async function verifyTypes() {
         if (!pkgData.type || pkgData.type !== 'module') {
             pkgData.type = 'module';
             fs.writeFileSync(path.join(rootDirectory, 'package.json'), JSON.stringify(pkgData, null, '\t'));
-            vscode.window.showInformationMessage('alt:V Docs - Added "type: module" to package.json');
+            vscode.window.showInformationMessage('[alt:V IDE] - Added type module to package.json');
+        }
+
+        if (!fs.existsSync(path.join(rootDirectory, 'tsconfig.json'))) {
+            const jsconfig = {
+                compilerOptions: {
+                    target: 'esNext',
+                    module: 'esNext',
+                    rootDir: '.',
+                    typeRoots: ['./node_modules/@altv'],
+                },
+            };
+
+            fs.writeFileSync(path.join(rootDirectory, 'jsconfig.json'), JSON.stringify(jsconfig, null, '\t'));
+            vscode.window.showInformationMessage('[alt:V IDE] Assuming using typescript. Created jsconfig.json for types.');
         }
 
         if (pkgData.devDependencies) {
@@ -60,7 +81,7 @@ export async function verifyTypes() {
 
         if (!allPassed) {
             vscode.window.showErrorMessage(
-                'alt:V Docs - Failed to load. Open workspace folder where "altv-server" is located.'
+                '[alt:V IDE] Failed to load. Open workspace folder where "altv-server" is located.'
             );
             return false;
         }

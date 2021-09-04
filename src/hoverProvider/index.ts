@@ -1,11 +1,11 @@
-import * as vscode from 'vscode';
-import * as path from 'path';
 import * as fs from 'fs';
 import * as gm from 'gray-matter';
-import { camelCaseIt } from '../utility/camelCase';
-import { getRootPath } from '../extension';
+import * as path from 'path';
+import * as vscode from 'vscode';
 
-let currentFilePath = '';
+import { getRootPath } from '../extension';
+import { camelCaseIt } from '../utility/camelCase';
+import { getUriFromFilePath } from '../utility/uriPaths';
 
 // These are considered prefixes
 // They return the relative file path that applies to the prefix.
@@ -83,19 +83,10 @@ export function registerHoverProvider(
                 return new vscode.Hover([]);
             }
 
-            const frontMatter = gm(file.toString());
-            currentFilePath = fullPath;
-
-            const mockFilePath = path.join(extensionPath as string, '/triggers/altvFileOpener.md');
-            const mockFileUri = vscode.Uri.file(mockFilePath);
-
-            return new vscode.Hover(
-                new vscode.MarkdownString(`[>> Open Documentation (${frontMatter.data.title})](${mockFileUri})`)
-            );
+            const result = getUriFromFilePath(gm(file.toString()), fullPath);
+            const contents = new vscode.MarkdownString(`[>> Open Documentation (${result.title})](${result.uri})`);
+            contents.isTrusted = true;
+            return new vscode.Hover(contents);
         },
     });
-}
-
-export function getHoverFilePath() {
-    return currentFilePath;
 }
