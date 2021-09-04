@@ -112,6 +112,18 @@ You can also hit F5 in VSCode to debug the extension.
 # Changelog
 
 ```
+2.0.1
+- Removed non-stop welcome screen.
+- Added jsconfig.json check.
+
+2.0.0
+- Removed old documentatino browsing.
+- Using altv.stuyk.com for documentation browsing.
+- Added WebView for browsing documentation.
+- Using new documentation from altv.stuyk.com
+- Replaced type injection at top of file with 'jsonconfig.json'
+- Removed deprecated features, and functions.
+
 1.1.7
 - Updated Welcome Page
 - Added RAGE:MP Migration Page

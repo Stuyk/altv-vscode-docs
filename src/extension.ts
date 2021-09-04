@@ -31,10 +31,10 @@ export async function activate(context: vscode.ExtensionContext) {
         console.error(`alt:V IDE - Could not read package.json`);
     }
 
-    // if (!existsSync(path.join(extensionPath, `./${fileName}`))) {
-    //     writeFileSync(path.join(extensionPath, `./${fileName}`), `${fileName}`);
+    if (!existsSync(path.join(extensionPath, `./${fileName}`))) {
+        writeFileSync(path.join(extensionPath, `./${fileName}`), `${fileName}`);
         DocumentationSearch.showGettingStarted();
-    // }
+    }
 
     // Status Bar Docs Command
     disposable = vscode.commands.registerCommand('altv-docs', () => {

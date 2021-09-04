@@ -42,7 +42,7 @@ export async function verifyTypes() {
             vscode.window.showInformationMessage('[alt:V IDE] - Added type module to package.json');
         }
 
-        if (!fs.existsSync(path.join(rootDirectory, 'tsconfig.json'))) {
+        if (!fs.existsSync(path.join(rootDirectory, 'tsconfig.json')) && !fs.existsSync(path.join(rootDirectory, 'jsconfig.json'))) {
             const jsconfig = {
                 compilerOptions: {
                     target: 'esNext',
