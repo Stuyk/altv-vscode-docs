@@ -16,13 +16,8 @@ export function getUriFromFilePath(frontMatter: gm.GrayMatterFile<string>, fileP
 export function getUrlFromFilePath(filePath: string): string {
     let urlPath: string;
 
-    if (filePath.includes('\\')) {
-        urlPath = filePath.replace(/.*vscode-docs\\/gm, '');
-        urlPath = urlPath.replace(/\\/g, '/');
-    } else {
-        urlPath = filePath.replace(/.*vscode-docs\//gm, '');
-    }
-
+    urlPath = filePath.replace(/.*vscode-docs.*?(\/|\\)/gm, '');
+    urlPath = urlPath.replace(/\\/g, '/');
     urlPath = urlPath.replace('.md', '.html');
     urlPath = `https://altv.stuyk.com/${urlPath}`;
 

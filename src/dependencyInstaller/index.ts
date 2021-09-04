@@ -71,13 +71,10 @@ export async function verifyTypes() {
         let allPassed = true;
 
         // Forcefully installs all the latest typings.
-        for (let i = 0; i < packagesToInstall.length; i++) {
-            const packageName = packagesToInstall[i];
-            await installPkg([packageName], { saveDev: true, cwd: rootDirectory }).catch((err) => {
-                console.log(err);
-                allPassed = false;
-            });
-        }
+        await installPkg(packagesToInstall, { saveDev: true, cwd: rootDirectory }).catch((err) => {
+            console.log(err);
+            allPassed = false;
+        });
 
         if (!allPassed) {
             vscode.window.showErrorMessage(

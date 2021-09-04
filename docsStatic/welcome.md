@@ -48,6 +48,9 @@ There's a handful of ways you can contribute or assist with this extension. This
 ## 🕑 What is New?
 
 ```
+2.0.3 - 2.0.4
+- Fix URLs
+
 2.0.2
 - Fix package installation.
 - Force install latest packages.
