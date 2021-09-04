@@ -14,6 +14,10 @@ const packagesToInstall = [
 
 export async function verifyTypes() {
     return await vscode.workspace.findFiles('package.json').then(async (res) => {
+        vscode.window.showInformationMessage(
+            '[alt:V IDE] Warming Up...'
+        );
+
         // Check if 'package.json' exists.
         if (res.length <= 0) {
             vscode.window.showErrorMessage(
