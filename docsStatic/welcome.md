@@ -1,5 +1,5 @@
 
-<img src="https://i.imgur.com/0aXCU9X.gif" height="150" align="right">&nbsp;&nbsp;<h1>Welcome! v2.0.2</h1>
+<img src="https://i.imgur.com/0aXCU9X.gif" height="150" align="right">&nbsp;&nbsp;<h1>Welcome! v2.0.6</h1>
 
 Thanks for trying the alt:V IDE Extension. We have added our most important links below to get you started with development for alt:V. Please check them out below and make sure you read the original extensions `README` file to fully understand how this extension works.
 
@@ -48,7 +48,7 @@ There's a handful of ways you can contribute or assist with this extension. This
 ## 🕑 What is New?
 
 ```
-2.0.3 - 2.0.4
+2.0.3 - 2.0.6
 - Fix URLs
 
 2.0.2
