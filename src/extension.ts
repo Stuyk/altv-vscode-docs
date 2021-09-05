@@ -2,9 +2,10 @@ import { existsSync, readFileSync, writeFileSync } from 'fs';
 import * as path from 'path';
 import * as vscode from 'vscode';
 
-import { verifyTypes } from './dependencyInstaller';
+import { DependencyInstaller } from './dependencyInstaller';
 import { DocumentationSearch } from './docsSearch';
 import { registerHoverProvider } from './hoverProvider';
+import { WebViewProvider } from './webviewProvider';
 
 let extensionPath: null | string = null;
 let interval: NodeJS.Timeout;
@@ -36,20 +37,11 @@ export async function activate(context: vscode.ExtensionContext) {
         DocumentationSearch.showGettingStarted();
     }
 
-    // Status Bar Docs Command
-    disposable = vscode.commands.registerCommand('altv-docs', () => {
-        new DocumentationSearch(context.extensionUri.fsPath);
-        DocumentationSearch.showQuickPick();
-    });
-
-    context.subscriptions.push(disposable);
-    interval = setInterval(waitForSetup, 15000);
+    interval = setInterval(waitForSetup, 2000);
     waitForSetup();
 }
 
 async function waitForSetup() {
-    console.log(`alt:V IDE - Waiting for altv-server...`);
-
     const serverExists = await vscode.workspace.findFiles('altv-server.*');
     if (serverExists.length <= 0) {
         return;
@@ -57,25 +49,28 @@ async function waitForSetup() {
 
     clearInterval(interval);
 
-    // If this happens to fail; we'll just ignore the error and let it be used like normal.
-    // No biggie.
-    const typesReady = await verifyTypes().catch((err) => {
-        return true;
-    });
+    // Used to generate the status bar at the bottom of the IDE.
+    const disposableStatusBar = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 99);
+    disposableStatusBar.text = '📝 alt:V IDE - Loading...';
+    disposableStatusBar.show();
+    extensionContext.subscriptions.push(disposableStatusBar);
 
-    if (!typesReady) {
-        return;
-    }
+    // Loads Dependencies for Project
+    await DependencyInstaller.load(extensionContext);
 
     // Used to generate the status bar at the bottom of the IDE.
-    disposable = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 0);
-    disposable.command = 'altv-docs';
-    disposable.text = 'Open alt:V Docs';
-    disposable.show();
-    extensionContext.subscriptions.push(disposable);
-
+    disposableStatusBar.text = '📝 alt:V Docs';
+    disposableStatusBar.command = 'altv-docs';
+    disposableStatusBar.tooltip = 'Open alt:V Documentation Search';
+   
     // Used to open a webview url path to `altv.stuyk.com`
-    disposable = vscode.commands.registerCommand('altv-vscode-docs.open-webview', DocumentationSearch.openUrlPath);
+    disposable = vscode.commands.registerCommand('altv-vscode-docs.open-webview', WebViewProvider.openUrlPath);
+
+    // Allows refreshing documentation on the fly.
+    disposable = vscode.commands.registerCommand(
+        'altv-vscode-docs.altv-docs-refresh',
+        DependencyInstaller.refreshDocumentation
+    );
 
     // Used to generate links to documentation when hovering over elements.
     disposable = registerHoverProvider({ language: 'typescript' }, true);
@@ -95,12 +90,16 @@ async function waitForSetup() {
         }
 
         vscode.window.showErrorMessage(`[alt:V IDE] We stopped using .mjs a long time ago. 
-            Change all your file extensions to .js and please add "type": "module" to your package.json to make it work.`
-        );
+            Change all your file extensions to .js and please add "type": "module" to your package.json to make it work.`);
+    });
+
+    // Status Bar Docs Command
+    disposable = vscode.commands.registerCommand('altv-docs', () => {
+        new DocumentationSearch(extensionContext.extensionUri.fsPath);
+        DocumentationSearch.showQuickPick();
     });
 
     extensionContext.subscriptions.push(disposable);
-    vscode.window.showInformationMessage(`alt:V IDE - Workspace Validated! Let's get coding!`);
 }
 
 export function getRootPath(): string | null {

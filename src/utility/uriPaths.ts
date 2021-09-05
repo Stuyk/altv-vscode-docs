@@ -21,6 +21,10 @@ export function getUrlFromFilePath(filePath: string): string {
     urlPath = urlPath.replace('.md', '.html');
     urlPath = `https://altv.stuyk.com/${urlPath}`;
 
+    if (urlPath.includes('/README.html')) {
+        urlPath = urlPath.replace('/README.html', '');
+    }
+
     urlsOutput.appendLine(`alt:V IDE URL Path Created for ${urlPath}`);
     urlsOutput.show();
 

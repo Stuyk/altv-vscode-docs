@@ -6,6 +6,7 @@ import * as vscode from 'vscode';
 
 import { getRootPath } from '../extension';
 import { getUrlFromFilePath } from '../utility/uriPaths';
+import { WebViewProvider } from '../webviewProvider';
 
 let documentationFiles: Array<{ fileName: string; filePath: string; description: string }> = [];
 
@@ -23,6 +24,11 @@ interface altMatter {
 export class DocumentationSearch {
     public static readonly viewType = 'altv.docsView';
 
+    /**
+     * Creates an instance of DocumentationSearch.
+     * @param {string} contextUri
+     * @memberof DocumentationSearch
+     */
     constructor(contextUri: string) {
         documentationFiles = [];
 
@@ -48,32 +54,21 @@ export class DocumentationSearch {
         console.log(`alt:V IDE - Found: ${documentationFiles.length} files for documentation.`);
     }
 
+    /**
+     * Shows the 'welcome.md' page when starting the extension for a new version.
+     * @static
+     * @memberof DocumentationSearch
+     */
     static showGettingStarted() {
         const uri = vscode.Uri.file(path.join(getRootPath() as string, '/docsStatic/welcome.md'));
         vscode.commands.executeCommand('markdown.showPreviewToSide', uri, vscode.ViewColumn.Active);
     }
 
-    static openUrlPath(result: { title: string, url: string }) {
-        if (!result || !result.url) {
-            return;
-        }
-
-        const panel = vscode.window.createWebviewPanel('altvDocLookup', result.title, vscode.ViewColumn.Beside, {});
-        panel.webview.html = `
-            <!DOCTYPE html>
-            <html lang="en" style="height: 100%">
-            <head>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>${result.title}</title>
-            </head>
-            <body style="margin:0px;padding:0px;overflow:hidden; height: 100%;">
-                <iframe src="${result.url}" frameborder="0" style="overflow:hidden;height:100%;width:100%" height="100%" width="100%"></iframe>
-            </body>
-            </html>
-        `;
-    }
-
+    /**
+     * Used when browsing through alt:V Docs in VSCode's internal list service.
+     * @static
+     * @memberof DocumentationSearch
+     */
     static showQuickPick() {
         const quickPick = vscode.window.createQuickPick();
         quickPick.items = documentationFiles.map((fileData) => {
@@ -92,10 +87,8 @@ export class DocumentationSearch {
                 return;
             }
 
-            console.log(selected.label);
-
             const result = getUrlFromFilePath(selected.filePath);
-            DocumentationSearch.openUrlPath({ title: selected.label, url: result })
+            WebViewProvider.openUrlPath({ title: selected.label, url: result });
             quickPick.dispose();
         });
 

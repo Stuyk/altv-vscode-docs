@@ -109,6 +109,12 @@ You can also hit F5 in VSCode to debug the extension.
 # Changelog
 
 ```
+2.0.7
+- Fix Base URL for README Files
+- Add Ability to Refresh Documentation
+- Added Documentation Downloading instead of Submodules
+- Refactored Dependency Installer
+
 2.0.3 - 2.0.6
 - Fix URLs
 
