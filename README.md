@@ -109,6 +109,9 @@ You can also hit F5 in VSCode to debug the extension.
 # Changelog
 
 ```
+2.0.8
+- Removed Empty Docs Folder
+
 2.0.7
 - Fix Base URL for README Files
 - Add Ability to Refresh Documentation

@@ -1,5 +1,5 @@
 
-<img src="https://i.imgur.com/0aXCU9X.gif" height="150" align="right">&nbsp;&nbsp;<h1>Welcome! v2.0.7</h1>
+<img src="https://i.imgur.com/0aXCU9X.gif" height="150" align="right">&nbsp;&nbsp;<h1>Welcome! v2.0.8</h1>
 
 Thanks for trying the alt:V IDE Extension. We have added our most important links below to get you started with development for alt:V. Please check them out below and make sure you read the original extensions `README` file to fully understand how this extension works.
 
