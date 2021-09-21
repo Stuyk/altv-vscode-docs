@@ -1,5 +1,4 @@
-
-<img src="https://i.imgur.com/0aXCU9X.gif" height="150" align="right">&nbsp;&nbsp;<h1>Welcome! v2.0.8</h1>
+<img src="https://i.imgur.com/0aXCU9X.gif" height="150" align="right">&nbsp;&nbsp;<h1>Welcome! v2.0.9</h1>
 
 Thanks for trying the alt:V IDE Extension. We have added our most important links below to get you started with development for alt:V. Please check them out below and make sure you read the original extensions `README` file to fully understand how this extension works.
 
@@ -12,6 +11,20 @@ You should check out the bootcamp by clicking `Open alt:V Docs` at the bottom!
 Feel free to search through the documentation that way.
 
 ![](https://i.imgur.com/b6QvgIR.png)
+
+## Setup & Installation
+
+-   Install the Extension
+-   [Retrieve Server Files](https://altv.mp/#/downloads)
+-   Initialize a folder with `npm init`
+-   Setup your workspace with a similar hierachy as below.
+-   Open the folder `myServer` in VSCode.
+-   The extension will notify you if it loaded properly.
+
+```sh
+myServer/
+├─── altv-server.exe OR altv-server
+```
 
 ## 💭 Use the Status Bar to Search
 
@@ -48,6 +61,12 @@ There's a handful of ways you can contribute or assist with this extension. This
 ## 🕑 What is New?
 
 ```
+2.0.9
+- Fix Annoying Search Opening when Hovering URLs
+
+2.0.8
+- Removed Empty Docs Folder
+
 2.0.7
 - Fix Base URL for README Files
 - Add Ability to Refresh Documentation

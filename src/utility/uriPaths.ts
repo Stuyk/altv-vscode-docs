@@ -1,9 +1,10 @@
 import * as gm from 'gray-matter';
 import * as vscode from 'vscode';
 
-let urlsOutput = vscode.window.createOutputChannel("alt:V IDE URLS Output");
-
-export function getUriFromFilePath(frontMatter: gm.GrayMatterFile<string>, filePath: string): {title: string, uri: vscode.Uri } {
+export function getUriFromFilePath(
+    frontMatter: gm.GrayMatterFile<string>,
+    filePath: string
+): { title: string; uri: vscode.Uri } {
     const urlPath = getUrlFromFilePath(filePath);
     const args = [{ url: urlPath, title: frontMatter.data.title }];
     const commandURI = vscode.Uri.parse(
@@ -24,9 +25,6 @@ export function getUrlFromFilePath(filePath: string): string {
     if (urlPath.includes('/README.html')) {
         urlPath = urlPath.replace('/README.html', '');
     }
-
-    urlsOutput.appendLine(`alt:V IDE URL Path Created for ${urlPath}`);
-    urlsOutput.show();
 
     return urlPath;
 }

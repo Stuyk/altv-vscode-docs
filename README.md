@@ -109,6 +109,9 @@ You can also hit F5 in VSCode to debug the extension.
 # Changelog
 
 ```
+2.0.9
+- Fix Annoying Search Opening when Hovering URLs
+
 2.0.8
 - Removed Empty Docs Folder
 
